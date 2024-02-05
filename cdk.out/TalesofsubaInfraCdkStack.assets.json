@@ -1,0 +1,34 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "edaa3f428e249704c0fa1412f5e893bdcc863750bd81784d04ba521ede513918": {
+      "source": {
+        "path": "asset.edaa3f428e249704c0fa1412f5e893bdcc863750bd81784d04ba521ede513918",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "949365052778-ap-south-1": {
+          "bucketName": "cdk-hnb659fds-assets-949365052778-ap-south-1",
+          "objectKey": "edaa3f428e249704c0fa1412f5e893bdcc863750bd81784d04ba521ede513918.zip",
+          "region": "ap-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-file-publishing-role-949365052778-ap-south-1"
+        }
+      }
+    },
+    "cb85bb4b7794ebc1df899d6c06736a5753f89fb9a3cf383570e3d1c95d757f47": {
+      "source": {
+        "path": "TalesofsubaInfraCdkStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "949365052778-ap-south-1": {
+          "bucketName": "cdk-hnb659fds-assets-949365052778-ap-south-1",
+          "objectKey": "cb85bb4b7794ebc1df899d6c06736a5753f89fb9a3cf383570e3d1c95d757f47.json",
+          "region": "ap-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-file-publishing-role-949365052778-ap-south-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
