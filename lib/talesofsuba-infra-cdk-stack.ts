@@ -179,11 +179,11 @@ export class TalesofsubaInfraCdkStack extends Stack {
       credentialsArn: ApiGwToSqsRole.roleArn,
     });
 
-    const HttpApiRoute1 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg`, {
-      apiId: api.ref,
-      routeKey: "GET /items",
-      target: `integrations/${httpApiIntegSqsSendMessage.ref}`,
-    });
+    // const HttpApiRoute1 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg`, {
+    //   apiId: api.ref,
+    //   routeKey: "GET /items",
+    //   target: `integrations/${httpApiIntegSqsSendMessage.ref}`,
+    // });
     const HttpApiRoute2 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg2`, {
       apiId: api.ref,
       routeKey: "GET /itemsbytype/{id}",

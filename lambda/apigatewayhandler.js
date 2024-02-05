@@ -34,10 +34,29 @@ exports.handler = async function (event, context) {
         body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": "slug" }, ExpressionAttributeValues: { ":value": event.pathParameters.id } }));
         body = body.Items;
         break;
-
-      case "GET /items":
-        body = await dynamo.send(new ScanCommand({ TableName: tableName }));
-        body = body.Items;
+      case "PUT /items":
+        const { Records } = event;
+        const requestJSON = JSON.parse(Records[0].body);
+        let requestJSON = JSON.parse(event.body);
+        await dynamo.send(
+          new PutCommand({
+            TableName: tableName,
+            Item: requestJSON,
+          })
+        );
+        body = `Put item ${requestJSON.id}`;
+        break;
+      case "POST /items":
+        const { Records } = event;
+        const requestJSON = JSON.parse(Records[0].body);
+        let requestJSON = JSON.parse(event.body);
+        await dynamo.send(
+          new PutCommand({
+            TableName: tableName,
+            Item: requestJSON,
+          })
+        );
+        body = `Post item ${requestJSON.id}`;
         break;
       default:
         throw new Error(`Unsupported route: "${event.routeKey}"`);

@@ -15,7 +15,7 @@
         }
       }
     },
-    "cb85bb4b7794ebc1df899d6c06736a5753f89fb9a3cf383570e3d1c95d757f47": {
+    "378bb604d495992e53822f1c853e9ee537aa9b621921be46da3320e0a2d7e292": {
       "source": {
         "path": "TalesofsubaInfraCdkStack.template.json",
         "packaging": "file"
@@ -23,7 +23,7 @@
       "destinations": {
         "949365052778-ap-south-1": {
           "bucketName": "cdk-hnb659fds-assets-949365052778-ap-south-1",
-          "objectKey": "cb85bb4b7794ebc1df899d6c06736a5753f89fb9a3cf383570e3d1c95d757f47.json",
+          "objectKey": "378bb604d495992e53822f1c853e9ee537aa9b621921be46da3320e0a2d7e292.json",
           "region": "ap-south-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-file-publishing-role-949365052778-ap-south-1"
         }

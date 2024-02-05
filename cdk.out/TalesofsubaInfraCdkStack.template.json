@@ -473,29 +473,6 @@
     "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-httpApiIntegSqsSendMessage"
    }
   },
-  "TalesOfSubaHttpApiRouteSqsSendMsg": {
-   "Type": "AWS::ApiGatewayV2::Route",
-   "Properties": {
-    "ApiId": {
-     "Ref": "TalesOfSubaHttpToSqsAPI"
-    },
-    "RouteKey": "GET /items",
-    "Target": {
-     "Fn::Join": [
-      "",
-      [
-       "integrations/",
-       {
-        "Ref": "TalesOfSubahttpApiIntegSqsSendMessage"
-       }
-      ]
-     ]
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg"
-   }
-  },
   "TalesOfSubaHttpApiRouteSqsSendMsg2": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {

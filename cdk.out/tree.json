@@ -766,34 +766,6 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg",
-            "attributes": {
-              "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
-              "aws:cdk:cloudformation:props": {
-                "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
-                },
-                "routeKey": "GET /items",
-                "target": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "integrations/",
-                      {
-                        "Ref": "TalesOfSubahttpApiIntegSqsSendMessage"
-                      }
-                    ]
-                  ]
-                }
-              }
-            },
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_apigatewayv2.CfnRoute",
-              "version": "2.118.0"
-            }
-          },
           "TalesOfSuba-HttpApiRouteSqsSendMsg2": {
             "id": "TalesOfSuba-HttpApiRouteSqsSendMsg2",
             "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg2",

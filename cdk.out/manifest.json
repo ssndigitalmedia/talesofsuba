@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-deploy-role-949365052778-ap-south-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-cfn-exec-role-949365052778-ap-south-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-ap-south-1/cb85bb4b7794ebc1df899d6c06736a5753f89fb9a3cf383570e3d1c95d757f47.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-ap-south-1/378bb604d495992e53822f1c853e9ee537aa9b621921be46da3320e0a2d7e292.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -142,12 +142,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "TalesOfSubahttpApiIntegSqsSendMessage"
-          }
-        ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg"
           }
         ],
         "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg2": [
