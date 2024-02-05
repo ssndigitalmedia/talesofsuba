@@ -35,6 +35,7 @@ exports.handler = async function (event, context) {
         body = body.Items;
         break;
       case "PUT /items":
+        // from SQS
         const { Records } = event;
         const requestJSON = JSON.parse(Records[0].body);
         let requestJSON = JSON.parse(event.body);
@@ -47,6 +48,7 @@ exports.handler = async function (event, context) {
         body = `Put item ${requestJSON.id}`;
         break;
       case "POST /items":
+        // from SQS
         const { Records } = event;
         const requestJSON = JSON.parse(Records[0].body);
         let requestJSON = JSON.parse(event.body);
