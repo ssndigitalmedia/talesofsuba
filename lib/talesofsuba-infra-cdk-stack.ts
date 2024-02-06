@@ -248,6 +248,15 @@ export class TalesofsubaInfraCdkStack extends Stack {
     //Add SQS as event source to trigger Lambda
     ApiGatewayHandlerFunction.addEventSource(new eventsources.SqsEventSource(bufferingQueue));
 
+
+    //Add Apigateway as event source to trigger Lambda
+    ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/itemsbytype/{id}"));
+
+    ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/items/{id}"));
+
+    ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("DELETE", "/items/{id}"));
+
+
     ////..................Outputs................/////////
     new cdk.CfnOutput(this, `${project}HttpApiEndpoint`, {
       description: "API Endpoint",
