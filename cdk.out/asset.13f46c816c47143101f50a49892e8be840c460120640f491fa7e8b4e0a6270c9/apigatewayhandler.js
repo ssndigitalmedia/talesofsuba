@@ -1,7 +1,7 @@
 //const aws = require('aws-sdk');
 
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, ScanCommand, PutCommand, UpdateCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBDocumentClient, ScanCommand, PutCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
 const tableName = process.env.table;
@@ -53,7 +53,7 @@ exports.handler = async function (event, context) {
         const requestJSON1 = JSON.parse(Records1[0].body);
         //let requestJSON = JSON.parse(event.body);
         await dynamo.send(
-          new UpdateCommand({
+          new PostCommand({
             TableName: tableName,
             Item: requestJSON1,
           })

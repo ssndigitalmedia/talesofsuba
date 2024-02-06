@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-deploy-role-949365052778-ap-south-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-cfn-exec-role-949365052778-ap-south-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-ap-south-1/378bb604d495992e53822f1c853e9ee537aa9b621921be46da3320e0a2d7e292.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-ap-south-1/b29109f07c5b0fcbbb8932903397b90a0194547efb108d4f50fc533354f3d6de.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -72,12 +72,6 @@
             "data": "TalesOfSubaSqsHandlerLambdaExecutionRole8E6E3493"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-SqsHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaSqsHandlerLambdaExecutionRoleDefaultPolicy82A427A6"
-          }
-        ],
         "/TalesofsubaInfraCdkStack/TalesOfSuba-SqsHandlerInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -88,6 +82,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "TalesOfSubaAPIGatewayHandlerLambdaExecutionRole6EA0DBF8"
+          }
+        ],
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TalesOfSubaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyBFE8EF8A"
           }
         ],
         "/TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerInlinePolicy/Resource": [
@@ -112,6 +112,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "TalesOfSubaapigatewayhandler01D9B7D6"
+          }
+        ],
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TalesOfSubaapigatewayhandlerSqsEventSourceTalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF16A517C3"
           }
         ],
         "/TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaRole/Resource": [
@@ -144,34 +150,40 @@
             "data": "TalesOfSubahttpApiIntegSqsSendMessage"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg2": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg2"
-          }
-        ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-sqshandler/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubasqshandler5F5521BB"
-          }
-        ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-sqshandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubasqshandlerSqsEventSourceTalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF4321A4F0"
-          }
-        ],
         "/TalesofsubaInfraCdkStack/TalesOfSuba-httpApiIntegInvokeLambda": [
           {
             "type": "aws:cdk:logicalId",
             "data": "TalesOfSubahttpApiIntegInvokeLambda"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteInvokeLambda": [
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteInvokeLambda"
+            "data": "TalesOfSubaHttpApiRouteSqsSendMsg2"
+          }
+        ],
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg4": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TalesOfSubaHttpApiRouteSqsSendMsg4"
+          }
+        ],
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg5": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TalesOfSubaHttpApiRouteSqsSendMsg5"
+          }
+        ],
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg6": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TalesOfSubaHttpApiRouteSqsSendMsg6"
+          }
+        ],
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg3": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TalesOfSubaHttpApiRouteSqsSendMsg3"
           }
         ],
         "/TalesofsubaInfraCdkStack/MyLambdaLogGroup/Resource": [

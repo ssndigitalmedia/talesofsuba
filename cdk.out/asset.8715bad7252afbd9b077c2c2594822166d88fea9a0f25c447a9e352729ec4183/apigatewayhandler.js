@@ -1,7 +1,7 @@
 //const aws = require('aws-sdk');
 
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, ScanCommand, PutCommand, UpdateCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBDocumentClient, ScanCommand, PutCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
 const tableName = process.env.table;
@@ -38,7 +38,7 @@ exports.handler = async function (event, context) {
         // from SQS
         const { Records } = event;
         const requestJSON = JSON.parse(Records[0].body);
-        //let requestJSON = JSON.parse(event.body);
+        let requestJSON = JSON.parse(event.body);
         await dynamo.send(
           new PutCommand({
             TableName: tableName,
@@ -49,16 +49,16 @@ exports.handler = async function (event, context) {
         break;
       case "POST /items":
         // from SQS
-        const { Records1 } = event;
-        const requestJSON1 = JSON.parse(Records1[0].body);
-        //let requestJSON = JSON.parse(event.body);
+        const { Records } = event;
+        const requestJSON = JSON.parse(Records[0].body);
+        let requestJSON = JSON.parse(event.body);
         await dynamo.send(
-          new UpdateCommand({
+          new PutCommand({
             TableName: tableName,
-            Item: requestJSON1,
+            Item: requestJSON,
           })
         );
-        body = `Post item ${requestJSON1.id}`;
+        body = `Post item ${requestJSON.id}`;
         break;
       default:
         throw new Error(`Unsupported route: "${event.routeKey}"`);
