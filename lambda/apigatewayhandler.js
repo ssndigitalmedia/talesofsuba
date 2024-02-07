@@ -10,10 +10,13 @@ const tableName = process.env.table;
 exports.handler = async function (event, context) {
   let body;
   let statusCode = 200;
+  console.log("tablename",tableName)
   const headers = {
     "Content-Type": "application/json",
   };
   try {
+    console.log(event);
+    console.log("Event Route Key: ", event.routeKey);
     switch (event.routeKey) {
       case "DELETE /items/{id}":
         await dynamo.send(

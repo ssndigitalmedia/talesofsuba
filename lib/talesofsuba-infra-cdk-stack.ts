@@ -250,11 +250,11 @@ export class TalesofsubaInfraCdkStack extends Stack {
 
 
     //Add Apigateway as event source to trigger Lambda
-    ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/itemsbytype/{id}"));
+    //ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/itemsbytype/{id}"));
 
-    ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/items/{id}"));
+    //ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/items/{id}"));
 
-    ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("DELETE", "/items/{id}"));
+    //ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource());
 
 
     ////..................Outputs................/////////
