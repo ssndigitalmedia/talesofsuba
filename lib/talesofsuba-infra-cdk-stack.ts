@@ -1,7 +1,6 @@
 import { Duration, Stack, StackProps } from "aws-cdk-lib";
 import * as sqs from "aws-cdk-lib/aws-sqs";
 import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
-import { LambdaIntegration, LogGroupLogDestination, RestApi } from "aws-cdk-lib/aws-apigateway";
 import { Construct } from "constructs";
 import * as logs from "aws-cdk-lib/aws-logs";
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
@@ -10,13 +9,28 @@ import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as eventsources from "aws-cdk-lib/aws-lambda-event-sources";
 import * as cdk from "aws-cdk-lib/core";
 
+
 export class TalesofsubaInfraCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    ////..................SQS QUEUES................./////////
-    const project = "TalesOfSuba-";
+    var project = '';
 
+    ////..................SQS QUEUES................./////////
+    if(`${cdk.Stack.of(this).region}`=='us-east-1'){
+
+       project = "TalesOfSuba-";
+
+    }
+    else if(`${cdk.Stack.of(this).region}`=='ap-south-1')
+    {
+         project = "TalesOfSuba-qa-";
+    }
+    else
+    {
+      return ;
+    }
+    
     ////..................SQS QUEUES................./////////
 
     // SQS DLQ
@@ -218,6 +232,8 @@ export class TalesofsubaInfraCdkStack extends Stack {
       target: `integrations/${httpApiIntegInvokeLambda.ref}`,
     });
 
+   
+
     const HttpApiRoute4 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg4`, {
       apiId: api.ref,
       routeKey: "GET /items/{id}",
@@ -248,14 +264,19 @@ export class TalesofsubaInfraCdkStack extends Stack {
     //Add SQS as event source to trigger Lambda
     ApiGatewayHandlerFunction.addEventSource(new eventsources.SqsEventSource(bufferingQueue));
 
+    const HttpApiLambdaPermission1 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission1`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal:"apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/items/{id}`,
+    } );
 
-    //Add Apigateway as event source to trigger Lambda
-    //ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/itemsbytype/{id}"));
-
-    //ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource("GET", "/items/{id}"));
-
-    //ApiGatewayHandlerFunction.addEventSource(new eventsources.ApiEventSource());
-
+    const HttpApiLambdaPermission2 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission2`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal:"apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/itemsbytype/{id}`,
+    } );
 
     ////..................Outputs................/////////
     new cdk.CfnOutput(this, `${project}HttpApiEndpoint`, {
