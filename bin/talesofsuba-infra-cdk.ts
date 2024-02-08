@@ -7,7 +7,7 @@ import * as process from 'process';
 const app = new cdk.App();
 new TalesofsubaInfraCdkStack(app, 'TalesofsubaInfraCdkStack', {
     env: {
-      account: '949365052778',
-      region: 'ap-south-1',
+      account: '949365052778', 
+      region: 'us-east-1', 
     },
 });
