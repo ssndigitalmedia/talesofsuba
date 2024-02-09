@@ -18,15 +18,22 @@ exports.handler = async function (event, context) {
     console.log(event);
     console.log("Event Route Key: ", event.routeKey);
     if (event?.Records[0]?.eventSource === "aws:sqs") {
-      console.log("Incoming message body from SQS : ", event);
-      const { Records } = event;
-      const requestJSON = JSON.parse(Records[0].body);
-      await dynamo.send(
-        new PutCommand({
-          TableName: tableName,
-          Item: requestJSON,
-        })
-      );
+      try {
+        console.log("Incoming message body from SQS : ", event);
+        const { Records } = event;
+        const requestJSON = JSON.parse(Records[0].body);
+        await dynamo.send(
+          new PutCommand({
+            TableName: tableName,
+            Item: requestJSON,
+          })
+        );
+        let status = 200;
+        body = "success";
+      } catch (err) {
+        statusCode = 400;
+        body = err.message;
+      }
       console.log("SQS request Successfully written to DynamoDB");
     } else {
       switch (event.routeKey) {
