@@ -9,28 +9,21 @@ import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as eventsources from "aws-cdk-lib/aws-lambda-event-sources";
 import * as cdk from "aws-cdk-lib/core";
 
-
 export class TalesofsubaInfraCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    var project = '';
+    var project = "";
 
     ////..................SQS QUEUES................./////////
-    if(`${cdk.Stack.of(this).region}`=='us-east-1'){
+    if (`${cdk.Stack.of(this).region}` == "us-east-1") {
+      project = "TalesOfSuba-";
+    } else if (`${cdk.Stack.of(this).region}` == "ap-south-1") {
+      project = "TalesOfSuba-test-";
+    } else {
+      return;
+    }
 
-       project = "TalesOfSuba-";
-
-    }
-    else if(`${cdk.Stack.of(this).region}`=='ap-south-1')
-    {
-         project = "TalesOfSuba-qa-";
-    }
-    else
-    {
-      return ;
-    }
-    
     ////..................SQS QUEUES................./////////
 
     // SQS DLQ
@@ -66,33 +59,33 @@ export class TalesofsubaInfraCdkStack extends Stack {
 
     ////..................Roles................/////////
 
-    const SqsHandlerLambdaExecutionRole = new iam.Role(this, `${project}SqsHandlerLambdaExecutionRole`, {
-      assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
-      roleName: `${project}SqsHandlerLambdaExecutionRole`,
-    });
+    // const SqsHandlerLambdaExecutionRole = new iam.Role(this, `${project}SqsHandlerLambdaExecutionRole`, {
+    //   assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
+    //   roleName: `${project}SqsHandlerLambdaExecutionRole`,
+    // });
 
-    SqsHandlerLambdaExecutionRole.attachInlinePolicy(
-      new iam.Policy(this, `${project}SqsHandlerInlinePolicy`, {
-        statements: [
-          new iam.PolicyStatement({
-            actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem"],
-            resources: [table.tableArn],
-          }),
-          new iam.PolicyStatement({
-            actions: ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"],
-            resources: ["*"],
-          }),
-          new iam.PolicyStatement({
-            actions: ["sqs:ReceiveMessage", "sqs:DeleteMessage", "sqs:GetQueueAttributes"],
-            resources: [bufferingQueue.queueArn],
-          }),
-          new iam.PolicyStatement({
-            actions: ["sqs:SendMessage"],
-            resources: [queueDlq.queueArn],
-          }),
-        ],
-      })
-    );
+    // SqsHandlerLambdaExecutionRole.attachInlinePolicy(
+    //   new iam.Policy(this, `${project}SqsHandlerInlinePolicy`, {
+    //     statements: [
+    //       new iam.PolicyStatement({
+    //         actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem"],
+    //         resources: [table.tableArn],
+    //       }),
+    //       new iam.PolicyStatement({
+    //         actions: ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"],
+    //         resources: ["*"],
+    //       }),
+    //       new iam.PolicyStatement({
+    //         actions: ["sqs:ReceiveMessage", "sqs:DeleteMessage", "sqs:GetQueueAttributes"],
+    //         resources: [bufferingQueue.queueArn],
+    //       }),
+    //       new iam.PolicyStatement({
+    //         actions: ["sqs:SendMessage"],
+    //         resources: [queueDlq.queueArn],
+    //       }),
+    //     ],
+    //   })
+    // );
 
     const APIGatewayHandlerLambdaExecutionRole = new iam.Role(this, `${project}APIGatewayHandlerLambdaExecutionRole`, {
       assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
@@ -103,7 +96,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
       new iam.Policy(this, `${project}APIGatewayHandlerInlinePolicy`, {
         statements: [
           new iam.PolicyStatement({
-            actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem"],
+            actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem", "dynamodb:Scan"],
             resources: [table.tableArn],
           }),
           new iam.PolicyStatement({
@@ -218,11 +211,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
       integrationType: "AWS_PROXY",
       //integrationSubtype: "LAMBDA",
       payloadFormatVersion: "1.0",
-      credentialsArn: APIGatewayHandlerLambdaExecutionRole.roleArn, // Use the existing role or create a new one
-      // requestParameters: {
-      //   "integration.request.path.proxy": "$request.path",
-      //   // Add any other required request parameters
-      // },
+      credentialsArn: ApiGwToLambdaRole.roleArn, // Use the existing role or create a new one
       integrationUri: ApiGatewayHandlerFunction.functionArn,
     });
 
@@ -231,8 +220,6 @@ export class TalesofsubaInfraCdkStack extends Stack {
       routeKey: "GET /itemsbytype/{id}",
       target: `integrations/${httpApiIntegInvokeLambda.ref}`,
     });
-
-   
 
     const HttpApiRoute4 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg4`, {
       apiId: api.ref,
@@ -267,16 +254,16 @@ export class TalesofsubaInfraCdkStack extends Stack {
     const HttpApiLambdaPermission1 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission1`, {
       action: "lambda:InvokeFunction",
       functionName: ApiGatewayHandlerFunction.functionName,
-      principal:"apigateway.amazonaws.com",
+      principal: "apigateway.amazonaws.com",
       sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/items/{id}`,
-    } );
+    });
 
     const HttpApiLambdaPermission2 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission2`, {
       action: "lambda:InvokeFunction",
       functionName: ApiGatewayHandlerFunction.functionName,
-      principal:"apigateway.amazonaws.com",
+      principal: "apigateway.amazonaws.com",
       sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/itemsbytype/{id}`,
-    } );
+    });
 
     ////..................Outputs................/////////
     new cdk.CfnOutput(this, `${project}HttpApiEndpoint`, {
