@@ -1,25 +1,25 @@
 {
  "Resources": {
-  "TalesOfSubatestDLQD4D82DD9": {
+  "TalesOfSubaqaDLQ770F6F11": {
    "Type": "AWS::SQS::Queue",
    "Properties": {
-    "QueueName": "TalesOfSuba-test-DLQ",
+    "QueueName": "TalesOfSuba-qa-DLQ",
     "VisibilityTimeout": 300
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-DLQ/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-DLQ/Resource"
    }
   },
-  "TalesOfSubatestbufferingQueue3436A84A": {
+  "TalesOfSubaqabufferingQueue7D436B1B": {
    "Type": "AWS::SQS::Queue",
    "Properties": {
-    "QueueName": "TalesOfSuba-test-bufferingQueue",
+    "QueueName": "TalesOfSuba-qa-bufferingQueue",
     "RedrivePolicy": {
      "deadLetterTargetArn": {
       "Fn::GetAtt": [
-       "TalesOfSubatestDLQD4D82DD9",
+       "TalesOfSubaqaDLQ770F6F11",
        "Arn"
       ]
      },
@@ -30,10 +30,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-bufferingQueue/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-bufferingQueue/Resource"
    }
   },
-  "TalesOfSubatestLoggroupBDB81C20": {
+  "TalesOfSubaqaLoggroup720FAC98": {
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
     "RetentionInDays": 7
@@ -41,10 +41,10 @@
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-Loggroup/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-Loggroup/Resource"
    }
   },
-  "TalesOfSubatesteventtable86BF9FE7": {
+  "TalesOfSubaqaeventtable3F672998": {
    "Type": "AWS::DynamoDB::Table",
    "Properties": {
     "AttributeDefinitions": [
@@ -60,15 +60,15 @@
       "KeyType": "HASH"
      }
     ],
-    "TableName": "TalesOfSuba-test-EventTable"
+    "TableName": "TalesOfSuba-qa-EventTable"
    },
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-event-table/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-event-table/Resource"
    }
   },
-  "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRole3C1CF184": {
+  "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -83,13 +83,13 @@
      ],
      "Version": "2012-10-17"
     },
-    "RoleName": "TalesOfSuba-test-APIGatewayHandlerLambdaExecutionRole"
+    "RoleName": "TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-APIGatewayHandlerLambdaExecutionRole/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole/Resource"
    }
   },
-  "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy5559D296": {
+  "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy12444C88": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -105,7 +105,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "TalesOfSubatestbufferingQueue3436A84A",
+         "TalesOfSubaqabufferingQueue7D436B1B",
          "Arn"
         ]
        }
@@ -113,18 +113,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy5559D296",
+    "PolicyName": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy12444C88",
     "Roles": [
      {
-      "Ref": "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRole3C1CF184"
+      "Ref": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource"
    }
   },
-  "TalesOfSubatestAPIGatewayHandlerInlinePolicyFBC74EDE": {
+  "TalesOfSubaqaAPIGatewayHandlerInlinePolicy2EFFCC96": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -142,7 +142,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "TalesOfSubatesteventtable86BF9FE7",
+         "TalesOfSubaqaeventtable3F672998",
          "Arn"
         ]
        }
@@ -159,18 +159,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "TalesOfSubatestAPIGatewayHandlerInlinePolicyFBC74EDE",
+    "PolicyName": "TalesOfSubaqaAPIGatewayHandlerInlinePolicy2EFFCC96",
     "Roles": [
      {
-      "Ref": "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRole3C1CF184"
+      "Ref": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-APIGatewayHandlerInlinePolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerInlinePolicy/Resource"
    }
   },
-  "TalesOfSubatestApiGwV2ToSqsRole446A7651": {
+  "TalesOfSubaqaApiGwV2ToSqsRole35659AED": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -188,13 +188,13 @@
     "ManagedPolicyArns": [
      "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
     ],
-    "RoleName": "TalesOfSuba-test-ApiGwV2ToSqsRole"
+    "RoleName": "TalesOfSuba-qa-ApiGwV2ToSqsRole"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-ApiGwV2ToSqsRole/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwV2ToSqsRole/Resource"
    }
   },
-  "TalesOfSubatestApiGwV2ToSqsInlinePolicy7E29A1C2": {
+  "TalesOfSubaqaApiGwV2ToSqsInlinePolicyD30BB3C5": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -209,7 +209,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "TalesOfSubatestbufferingQueue3436A84A",
+         "TalesOfSubaqabufferingQueue7D436B1B",
          "Arn"
         ]
        }
@@ -217,18 +217,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "TalesOfSubatestApiGwV2ToSqsInlinePolicy7E29A1C2",
+    "PolicyName": "TalesOfSubaqaApiGwV2ToSqsInlinePolicyD30BB3C5",
     "Roles": [
      {
-      "Ref": "TalesOfSubatestApiGwV2ToSqsRole446A7651"
+      "Ref": "TalesOfSubaqaApiGwV2ToSqsRole35659AED"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-ApiGwV2ToSqsInlinePolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwV2ToSqsInlinePolicy/Resource"
    }
   },
-  "TalesOfSubatestapigatewayhandlerC1490174": {
+  "TalesOfSubaqaapigatewayhandlerE159EF9B": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
@@ -238,49 +238,49 @@
     "Environment": {
      "Variables": {
       "table": {
-       "Ref": "TalesOfSubatesteventtable86BF9FE7"
+       "Ref": "TalesOfSubaqaeventtable3F672998"
       }
      }
     },
-    "FunctionName": "TalesOfSuba-test-apigatewayhandler",
+    "FunctionName": "TalesOfSuba-qa-apigatewayhandler",
     "Handler": "apigatewayhandler.handler",
     "Role": {
      "Fn::GetAtt": [
-      "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRole3C1CF184",
+      "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF",
       "Arn"
      ]
     },
     "Runtime": "nodejs20.x"
    },
    "DependsOn": [
-    "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy5559D296",
-    "TalesOfSubatestAPIGatewayHandlerLambdaExecutionRole3C1CF184"
+    "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy12444C88",
+    "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF"
    ],
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-apigatewayhandler/Resource",
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/Resource",
     "aws:asset:path": "asset.8d27c15460f791565e4ed4f0379d3752df4713582254cc03724c380bb7b88358",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
   },
-  "TalesOfSubatestapigatewayhandlerSqsEventSourceTalesofsubaInfraCdkStackTalesOfSubatestbufferingQueue5B5BF43497143B04": {
+  "TalesOfSubaqaapigatewayhandlerSqsEventSourceTalesofsubaInfraCdkStackTalesOfSubaqabufferingQueueCF8A0FB0C6EB78DF": {
    "Type": "AWS::Lambda::EventSourceMapping",
    "Properties": {
     "EventSourceArn": {
      "Fn::GetAtt": [
-      "TalesOfSubatestbufferingQueue3436A84A",
+      "TalesOfSubaqabufferingQueue7D436B1B",
       "Arn"
      ]
     },
     "FunctionName": {
-     "Ref": "TalesOfSubatestapigatewayhandlerC1490174"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubatestbufferingQueue5B5BF434/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubaqabufferingQueueCF8A0FB0/Resource"
    }
   },
-  "TalesOfSubatestApiGwToLambdaRole44A73D59": {
+  "TalesOfSubaqaApiGwToLambdaRole205E609F": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -295,13 +295,13 @@
      ],
      "Version": "2012-10-17"
     },
-    "RoleName": "TalesOfSuba-test-ApiGwToLambdaRole"
+    "RoleName": "TalesOfSuba-qa-ApiGwToLambdaRole"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-ApiGwToLambdaRole/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwToLambdaRole/Resource"
    }
   },
-  "TalesOfSubatestApiGwToLambdaInlinePolicyB5457D07": {
+  "TalesOfSubaqaApiGwToLambdaInlinePolicy359272FB": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -311,7 +311,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "TalesOfSubatestapigatewayhandlerC1490174",
+         "TalesOfSubaqaapigatewayhandlerE159EF9B",
          "Arn"
         ]
        }
@@ -319,18 +319,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "TalesOfSubatestApiGwToLambdaInlinePolicyB5457D07",
+    "PolicyName": "TalesOfSubaqaApiGwToLambdaInlinePolicy359272FB",
     "Roles": [
      {
-      "Ref": "TalesOfSubatestApiGwToLambdaRole44A73D59"
+      "Ref": "TalesOfSubaqaApiGwToLambdaRole205E609F"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-ApiGwToLambdaInlinePolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwToLambdaInlinePolicy/Resource"
    }
   },
-  "TalesOfSubatestHttpToSqsAPI": {
+  "TalesOfSubaqaHttpToSqsAPI": {
    "Type": "AWS::ApiGatewayV2::Api",
    "Properties": {
     "CorsConfiguration": {
@@ -349,44 +349,44 @@
      ],
      "MaxAge": 43200
     },
-    "Name": "TalesOfSuba-test-function",
+    "Name": "TalesOfSuba-qa-function",
     "ProtocolType": "HTTP"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpToSqs-API"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpToSqs-API"
    }
   },
-  "TalesOfSubatestHttpToSqsStage": {
+  "TalesOfSubaqaHttpToSqsStage": {
    "Type": "AWS::ApiGatewayV2::Stage",
    "Properties": {
     "AccessLogSettings": {
      "DestinationArn": {
       "Fn::GetAtt": [
-       "TalesOfSubatestLoggroupBDB81C20",
+       "TalesOfSubaqaLoggroup720FAC98",
        "Arn"
       ]
      },
      "Format": "{ \"requestId\":\"$context.requestId\", \"ip\": \"$context.identity.sourceIp\", \"requestTime\":\"$context.requestTime\", \"httpMethod\":\"$context.httpMethod\",\"routeKey\":\"$context.routeKey\", \"status\":\"$context.status\",\"protocol\":\"$context.protocol\", \"responseLength\":\"$context.responseLength\" }"
     },
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "AutoDeploy": true,
     "StageName": "$default"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpToSqsStage"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpToSqsStage"
    }
   },
-  "TalesOfSubatesthttpApiIntegSqsSendMessage": {
+  "TalesOfSubaqahttpApiIntegSqsSendMessage": {
    "Type": "AWS::ApiGatewayV2::Integration",
    "Properties": {
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "CredentialsArn": {
      "Fn::GetAtt": [
-      "TalesOfSubatestApiGwV2ToSqsRole446A7651",
+      "TalesOfSubaqaApiGwV2ToSqsRole35659AED",
       "Arn"
      ]
     },
@@ -395,45 +395,45 @@
     "PayloadFormatVersion": "1.0",
     "RequestParameters": {
      "QueueUrl": {
-      "Ref": "TalesOfSubatestbufferingQueue3436A84A"
+      "Ref": "TalesOfSubaqabufferingQueue7D436B1B"
      },
      "MessageBody": "$request.body"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-httpApiIntegSqsSendMessage"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-httpApiIntegSqsSendMessage"
    }
   },
-  "TalesOfSubatesthttpApiIntegInvokeLambda": {
+  "TalesOfSubaqahttpApiIntegInvokeLambda": {
    "Type": "AWS::ApiGatewayV2::Integration",
    "Properties": {
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "CredentialsArn": {
      "Fn::GetAtt": [
-      "TalesOfSubatestApiGwToLambdaRole44A73D59",
+      "TalesOfSubaqaApiGwToLambdaRole205E609F",
       "Arn"
      ]
     },
     "IntegrationType": "AWS_PROXY",
     "IntegrationUri": {
      "Fn::GetAtt": [
-      "TalesOfSubatestapigatewayhandlerC1490174",
+      "TalesOfSubaqaapigatewayhandlerE159EF9B",
       "Arn"
      ]
     },
     "PayloadFormatVersion": "1.0"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-httpApiIntegInvokeLambda"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-httpApiIntegInvokeLambda"
    }
   },
-  "TalesOfSubatestHttpApiRouteSqsSendMsg2": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg2": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "GET /itemsbytype/{id}",
     "Target": {
@@ -442,21 +442,21 @@
       [
        "integrations/",
        {
-        "Ref": "TalesOfSubatesthttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpApiRouteSqsSendMsg2"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg2"
    }
   },
-  "TalesOfSubatestHttpApiRouteSqsSendMsg4": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg4": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "GET /items/{id}",
     "Target": {
@@ -465,21 +465,21 @@
       [
        "integrations/",
        {
-        "Ref": "TalesOfSubatesthttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpApiRouteSqsSendMsg4"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg4"
    }
   },
-  "TalesOfSubatestHttpApiRouteSqsSendMsg5": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg5": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "PUT /items",
     "Target": {
@@ -488,21 +488,21 @@
       [
        "integrations/",
        {
-        "Ref": "TalesOfSubatesthttpApiIntegSqsSendMessage"
+        "Ref": "TalesOfSubaqahttpApiIntegSqsSendMessage"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpApiRouteSqsSendMsg5"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg5"
    }
   },
-  "TalesOfSubatestHttpApiRouteSqsSendMsg6": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg6": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "POST /items",
     "Target": {
@@ -511,21 +511,21 @@
       [
        "integrations/",
        {
-        "Ref": "TalesOfSubatesthttpApiIntegSqsSendMessage"
+        "Ref": "TalesOfSubaqahttpApiIntegSqsSendMessage"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpApiRouteSqsSendMsg6"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg6"
    }
   },
-  "TalesOfSubatestHttpApiRouteSqsSendMsg3": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg3": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "TalesOfSubatestHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "DELETE /items/{id}",
     "Target": {
@@ -534,14 +534,14 @@
       [
        "integrations/",
        {
-        "Ref": "TalesOfSubatesthttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpApiRouteSqsSendMsg3"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg3"
    }
   },
   "MyLambdaLogGroupA24CCB16": {
@@ -553,7 +553,7 @@
       [
        "/aws/lambda/",
        {
-        "Ref": "TalesOfSubatestapigatewayhandlerC1490174"
+        "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
        }
       ]
      ]
@@ -566,12 +566,12 @@
     "aws:cdk:path": "TalesofsubaInfraCdkStack/MyLambdaLogGroup/Resource"
    }
   },
-  "TalesOfSubatestHttpApiLambdaPermission1": {
+  "TalesOfSubaqaHttpApiLambdaPermission1": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "TalesOfSubatestapigatewayhandlerC1490174"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
@@ -580,7 +580,7 @@
       [
        "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "TalesOfSubatestHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/items/{id}"
       ]
@@ -588,15 +588,15 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpApiLambdaPermission1"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission1"
    }
   },
-  "TalesOfSubatestHttpApiLambdaPermission2": {
+  "TalesOfSubaqaHttpApiLambdaPermission2": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "TalesOfSubatestapigatewayhandlerC1490174"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
@@ -605,7 +605,7 @@
       [
        "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "TalesOfSubatestHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/itemsbytype/{id}"
       ]
@@ -613,7 +613,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-test-HttpApiLambdaPermission2"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission2"
    }
   },
   "CDKMetadata": {
@@ -627,11 +627,11 @@
   }
  },
  "Outputs": {
-  "TalesOfSubatestHttpApiEndpoint": {
+  "TalesOfSubaqaHttpApiEndpoint": {
    "Description": "API Endpoint",
    "Value": {
     "Fn::GetAtt": [
-     "TalesOfSubatestHttpToSqsAPI",
+     "TalesOfSubaqaHttpToSqsAPI",
      "ApiEndpoint"
     ]
    }

@@ -19,7 +19,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
     if (`${cdk.Stack.of(this).region}` == "us-east-1") {
       project = "TalesOfSuba-";
     } else if (`${cdk.Stack.of(this).region}` == "ap-south-1") {
-      project = "TalesOfSuba-test-";
+      project = "TalesOfSuba-qa-";
     } else {
       return;
     }
