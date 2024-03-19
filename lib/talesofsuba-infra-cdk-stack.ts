@@ -96,7 +96,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
       new iam.Policy(this, `${project}APIGatewayHandlerInlinePolicy`, {
         statements: [
           new iam.PolicyStatement({
-            actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem", "dynamodb:Scan"],
+            actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem", "dynamodb:UpdateItem", "dynamodb:Scan"],
             resources: [table.tableArn],
           }),
           new iam.PolicyStatement({
@@ -241,6 +241,11 @@ export class TalesofsubaInfraCdkStack extends Stack {
       routeKey: "DELETE /items/{id}",
       target: `integrations/${httpApiIntegInvokeLambda.ref}`,
     });
+    const HttpApiRoute1 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg1`, {
+      apiId: api.ref,
+      routeKey: "POST /itemupdate",
+      target: `integrations/${httpApiIntegInvokeLambda.ref}`,
+    });
 
     // Associate the Lambda function with a CloudWatch Logs log group
     const lambdaLogGroup = new logs.LogGroup(this, "MyLambdaLogGroup", {
@@ -263,6 +268,13 @@ export class TalesofsubaInfraCdkStack extends Stack {
       functionName: ApiGatewayHandlerFunction.functionName,
       principal: "apigateway.amazonaws.com",
       sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/itemsbytype/{id}`,
+    });
+
+    const HttpApiLambdaPermission3 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission3`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal: "apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/itemupdate`,
     });
 
     ////..................Outputs................/////////

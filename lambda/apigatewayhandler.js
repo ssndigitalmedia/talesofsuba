@@ -38,6 +38,26 @@ exports.handler = async function (event, context) {
           body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": "slug" }, ExpressionAttributeValues: { ":value": event.pathParameters.id } }));
           body = body.Items;
           break;
+        case "/itemupdate":
+          const requestJSON = JSON.parse(event.body);
+          console.log("Incoming message body from API Gateway for update : ", requestJSON);
+          body = await dynamo.send(
+            new UpdateCommand({
+              TableName: tableName,
+              Key: {
+                id: requestJSON.id,
+              },
+              UpdateExpression: "set description = :description",
+              ExpressionAttributeValues: {
+                ":description": requestJSON.description,
+              },
+              ReturnValues: "ALL_NEW",
+            })
+          );
+          body = body.Items;
+          console.log("DD sucessfully updated : ", requestJSON);
+          break;
+
         default:
           throw new Error(`Unsupported route: "${event.routeKey}"`);
       }

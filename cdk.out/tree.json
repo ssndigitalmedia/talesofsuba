@@ -250,7 +250,8 @@
                             "dynamodb:Get*",
                             "dynamodb:List*",
                             "dynamodb:PutItem",
-                            "dynamodb:Scan"
+                            "dynamodb:Scan",
+                            "dynamodb:UpdateItem"
                           ],
                           "Effect": "Allow",
                           "Resource": {
@@ -433,7 +434,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": "cdk-hnb659fds-assets-949365052778-ap-south-1",
-                      "s3Key": "8d27c15460f791565e4ed4f0379d3752df4713582254cc03724c380bb7b88358.zip"
+                      "s3Key": "03b23bf6ed5797574de2871a79a32219d0be09d01457a220ea66c1edc480e58b.zip"
                     },
                     "environment": {
                       "variables": {
@@ -843,6 +844,34 @@
               "version": "2.118.0"
             }
           },
+          "TalesOfSuba-qa-HttpApiRouteSqsSendMsg1": {
+            "id": "TalesOfSuba-qa-HttpApiRouteSqsSendMsg1",
+            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
+              "aws:cdk:cloudformation:props": {
+                "apiId": {
+                  "Ref": "TalesOfSubaqaHttpToSqsAPI"
+                },
+                "routeKey": "POST /itemupdate",
+                "target": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "integrations/",
+                      {
+                        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
+                      }
+                    ]
+                  ]
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigatewayv2.CfnRoute",
+              "version": "2.118.0"
+            }
+          },
           "MyLambdaLogGroup": {
             "id": "MyLambdaLogGroup",
             "path": "TalesofsubaInfraCdkStack/MyLambdaLogGroup",
@@ -928,6 +957,36 @@
                         "Ref": "TalesOfSubaqaHttpToSqsAPI"
                       },
                       "/*/*/itemsbytype/{id}"
+                    ]
+                  ]
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+              "version": "2.118.0"
+            }
+          },
+          "TalesOfSuba-qa-HttpApiLambdaPermission3": {
+            "id": "TalesOfSuba-qa-HttpApiLambdaPermission3",
+            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission3",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+              "aws:cdk:cloudformation:props": {
+                "action": "lambda:InvokeFunction",
+                "functionName": {
+                  "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
+                },
+                "principal": "apigateway.amazonaws.com",
+                "sourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:ap-south-1:949365052778:",
+                      {
+                        "Ref": "TalesOfSubaqaHttpToSqsAPI"
+                      },
+                      "/*/*/itemupdate"
                     ]
                   ]
                 }

@@ -137,7 +137,8 @@
         "dynamodb:Get*",
         "dynamodb:List*",
         "dynamodb:PutItem",
-        "dynamodb:Scan"
+        "dynamodb:Scan",
+        "dynamodb:UpdateItem"
        ],
        "Effect": "Allow",
        "Resource": {
@@ -233,7 +234,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-949365052778-ap-south-1",
-     "S3Key": "8d27c15460f791565e4ed4f0379d3752df4713582254cc03724c380bb7b88358.zip"
+     "S3Key": "03b23bf6ed5797574de2871a79a32219d0be09d01457a220ea66c1edc480e58b.zip"
     },
     "Environment": {
      "Variables": {
@@ -258,7 +259,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/Resource",
-    "aws:asset:path": "asset.8d27c15460f791565e4ed4f0379d3752df4713582254cc03724c380bb7b88358",
+    "aws:asset:path": "asset.03b23bf6ed5797574de2871a79a32219d0be09d01457a220ea66c1edc480e58b",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -544,6 +545,29 @@
     "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg3"
    }
   },
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg1": {
+   "Type": "AWS::ApiGatewayV2::Route",
+   "Properties": {
+    "ApiId": {
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
+    },
+    "RouteKey": "POST /itemupdate",
+    "Target": {
+     "Fn::Join": [
+      "",
+      [
+       "integrations/",
+       {
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
+       }
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg1"
+   }
+  },
   "MyLambdaLogGroupA24CCB16": {
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
@@ -614,6 +638,31 @@
    },
    "Metadata": {
     "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission2"
+   }
+  },
+  "TalesOfSubaqaHttpApiLambdaPermission3": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:aws:execute-api:ap-south-1:949365052778:",
+       {
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
+       },
+       "/*/*/itemupdate"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission3"
    }
   },
   "CDKMetadata": {
