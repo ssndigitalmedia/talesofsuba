@@ -265,15 +265,11 @@
                           "Action": [
                             "logs:CreateLogGroup",
                             "logs:CreateLogStream",
-                            "logs:PutLogEvents"
+                            "logs:PutLogEvents",
+                            "secretsmanager:GetSecretValue"
                           ],
                           "Effect": "Allow",
                           "Resource": "*"
-                        },
-                        {
-                          "Action": "secretsmanager:*",
-                          "Effect": "Allow",
-                          "Resource": "arn:aws:lambda:*:*:function:SecretsManager*"
                         }
                       ],
                       "Version": "2012-10-17"
@@ -439,7 +435,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": "cdk-hnb659fds-assets-949365052778-ap-south-1",
-                      "s3Key": "a5e0f9782b4d3b5311c5632ae6e254d580b0b6c102f6a81f626525847c5e5a08.zip"
+                      "s3Key": "dc7ab29b4a418131da193eeafd3c36a0c18eafbc1eea2ce58ee0d755b797aaf9.zip"
                     },
                     "environment": {
                       "variables": {
@@ -559,7 +555,10 @@
                     "policyDocument": {
                       "Statement": [
                         {
-                          "Action": "lambda:InvokeFunction",
+                          "Action": [
+                            "lambda:InvokeFunction",
+                            "secretsmanager:GetSecretValue"
+                          ],
                           "Effect": "Allow",
                           "Resource": {
                             "Fn::GetAtt": [
@@ -1020,6 +1019,36 @@
                         "Ref": "TalesOfSubaqaHttpToSqsAPI"
                       },
                       "/*/*/itemupdate"
+                    ]
+                  ]
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+              "version": "2.118.0"
+            }
+          },
+          "TalesOfSuba-qa-HttpApiLambdaPermission4": {
+            "id": "TalesOfSuba-qa-HttpApiLambdaPermission4",
+            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission4",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+              "aws:cdk:cloudformation:props": {
+                "action": "lambda:InvokeFunction",
+                "functionName": {
+                  "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
+                },
+                "principal": "apigateway.amazonaws.com",
+                "sourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:ap-south-1:949365052778:",
+                      {
+                        "Ref": "TalesOfSubaqaHttpToSqsAPI"
+                      },
+                      "/*/*/getsecrets"
                     ]
                   ]
                 }

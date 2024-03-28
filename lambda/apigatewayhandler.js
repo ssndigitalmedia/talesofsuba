@@ -4,8 +4,7 @@ const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, ScanCommand, PutCommand, UpdateCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
-const AWS = require("aws-sdk");
-const SM = new AWS.SecretsManager();
+const { GetSecretValueCommand, SecretsManagerClient } = require("@aws-sdk/client-secrets-manager");
 const tableName = process.env.table;
 
 // initialise dynamoDB client
@@ -62,9 +61,17 @@ exports.handler = async function (event, context) {
         case "/getsecrets":
           const secret_name = "prod/s3/ap-south";
           const responseobj = {};
-          const secretData = await SM.getSecretValue({
-            SecretId: secret_name,
-          }).promise();
+          // const secretData = await GetSecretValueCommand({
+          //   SecretId: secret_name,
+          // }).promise();
+
+          const client = new SecretsManagerClient();
+          const secretData = await client.send(
+            new GetSecretValueCommand({
+              SecretId: secret_name,
+            })
+          );
+
           const replaced = secretData.SecretString.replace(/['"{}]/g, "");
           const result = replaced.split(",");
           await Promise.all(

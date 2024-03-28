@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-deploy-role-949365052778-ap-south-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-cfn-exec-role-949365052778-ap-south-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-ap-south-1/77cbe54cfb7f64fbf0000840b6b974fcee7dfdaf1a1a7bbe1c36d4dcc2d88f09.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-ap-south-1/fd7b680d91b8378c5ea369f319d7b619df0adc4c7e4a9f5c00e9e5724d835926.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -208,6 +208,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "TalesOfSubaqaHttpApiLambdaPermission3"
+          }
+        ],
+        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission4": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TalesOfSubaqaHttpApiLambdaPermission4"
           }
         ],
         "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiEndpoint": [

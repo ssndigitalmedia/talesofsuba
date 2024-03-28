@@ -76,8 +76,8 @@ export class TalesofsubaInfraCdkStack extends Stack {
             resources: ["*"],
           }),
           new iam.PolicyStatement({
-            actions: ["secretsmanager:*"],
-            resources: ["arn:aws:lambda:*:*:function:SecretsManager*"],
+            actions: ["secretsmanager:GetSecretValue"],
+            resources: ["*"],
           }),
         ],
       })
@@ -122,7 +122,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
       new iam.Policy(this, `${project}ApiGwToLambdaInlinePolicy`, {
         statements: [
           new iam.PolicyStatement({
-            actions: ["lambda:InvokeFunction"],
+            actions: ["lambda:InvokeFunction", "secretsmanager:GetSecretValue"],
             resources: [ApiGatewayHandlerFunction.functionArn],
           }),
         ],
