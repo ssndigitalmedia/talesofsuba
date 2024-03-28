@@ -269,6 +269,11 @@
                           ],
                           "Effect": "Allow",
                           "Resource": "*"
+                        },
+                        {
+                          "Action": "secretsmanager:*",
+                          "Effect": "Allow",
+                          "Resource": "arn:aws:lambda:*:*:function:SecretsManager*"
                         }
                       ],
                       "Version": "2012-10-17"
@@ -434,7 +439,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": "cdk-hnb659fds-assets-949365052778-ap-south-1",
-                      "s3Key": "03b23bf6ed5797574de2871a79a32219d0be09d01457a220ea66c1edc480e58b.zip"
+                      "s3Key": "a5e0f9782b4d3b5311c5632ae6e254d580b0b6c102f6a81f626525847c5e5a08.zip"
                     },
                     "environment": {
                       "variables": {
@@ -854,6 +859,34 @@
                   "Ref": "TalesOfSubaqaHttpToSqsAPI"
                 },
                 "routeKey": "POST /itemupdate",
+                "target": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "integrations/",
+                      {
+                        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
+                      }
+                    ]
+                  ]
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigatewayv2.CfnRoute",
+              "version": "2.118.0"
+            }
+          },
+          "TalesOfSuba-qa-HttpApiRoute7": {
+            "id": "TalesOfSuba-qa-HttpApiRoute7",
+            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRoute7",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
+              "aws:cdk:cloudformation:props": {
+                "apiId": {
+                  "Ref": "TalesOfSubaqaHttpToSqsAPI"
+                },
+                "routeKey": "POST /getsecrets",
                 "target": {
                   "Fn::Join": [
                     "",

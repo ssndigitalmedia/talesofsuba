@@ -4,6 +4,8 @@ const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, ScanCommand, PutCommand, UpdateCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
+const AWS = require("aws-sdk");
+const SM = new AWS.SecretsManager();
 const tableName = process.env.table;
 
 // initialise dynamoDB client
@@ -56,6 +58,25 @@ exports.handler = async function (event, context) {
           );
           body = body.Items;
           console.log("DD sucessfully updated : ", requestJSON);
+          break;
+        case "/getsecrets":
+          const secret_name = "prod/s3/ap-south";
+          const responseobj = {};
+          const secretData = await SM.getSecretValue({
+            SecretId: secret_name,
+          }).promise();
+          const replaced = secretData.SecretString.replace(/['"{}]/g, "");
+          const result = replaced.split(",");
+          await Promise.all(
+            result.map((item) => {
+              const splitted = item.split(":");
+              responseobj[splitted[0]] = splitted[1];
+            })
+          );
+          console.log("secretData retrived sucessfully");
+          body = {
+            data: responseobj,
+          };
           break;
 
         default:

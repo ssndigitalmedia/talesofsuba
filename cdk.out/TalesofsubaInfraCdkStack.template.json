@@ -156,6 +156,11 @@
        ],
        "Effect": "Allow",
        "Resource": "*"
+      },
+      {
+       "Action": "secretsmanager:*",
+       "Effect": "Allow",
+       "Resource": "arn:aws:lambda:*:*:function:SecretsManager*"
       }
      ],
      "Version": "2012-10-17"
@@ -234,7 +239,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-949365052778-ap-south-1",
-     "S3Key": "03b23bf6ed5797574de2871a79a32219d0be09d01457a220ea66c1edc480e58b.zip"
+     "S3Key": "a5e0f9782b4d3b5311c5632ae6e254d580b0b6c102f6a81f626525847c5e5a08.zip"
     },
     "Environment": {
      "Variables": {
@@ -259,7 +264,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/Resource",
-    "aws:asset:path": "asset.03b23bf6ed5797574de2871a79a32219d0be09d01457a220ea66c1edc480e58b",
+    "aws:asset:path": "asset.a5e0f9782b4d3b5311c5632ae6e254d580b0b6c102f6a81f626525847c5e5a08",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -566,6 +571,29 @@
    },
    "Metadata": {
     "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg1"
+   }
+  },
+  "TalesOfSubaqaHttpApiRoute7": {
+   "Type": "AWS::ApiGatewayV2::Route",
+   "Properties": {
+    "ApiId": {
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
+    },
+    "RouteKey": "POST /getsecrets",
+    "Target": {
+     "Fn::Join": [
+      "",
+      [
+       "integrations/",
+       {
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
+       }
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRoute7"
    }
   },
   "MyLambdaLogGroupA24CCB16": {

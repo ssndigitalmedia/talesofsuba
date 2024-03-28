@@ -59,34 +59,6 @@ export class TalesofsubaInfraCdkStack extends Stack {
 
     ////..................Roles................/////////
 
-    // const SqsHandlerLambdaExecutionRole = new iam.Role(this, `${project}SqsHandlerLambdaExecutionRole`, {
-    //   assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
-    //   roleName: `${project}SqsHandlerLambdaExecutionRole`,
-    // });
-
-    // SqsHandlerLambdaExecutionRole.attachInlinePolicy(
-    //   new iam.Policy(this, `${project}SqsHandlerInlinePolicy`, {
-    //     statements: [
-    //       new iam.PolicyStatement({
-    //         actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem"],
-    //         resources: [table.tableArn],
-    //       }),
-    //       new iam.PolicyStatement({
-    //         actions: ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"],
-    //         resources: ["*"],
-    //       }),
-    //       new iam.PolicyStatement({
-    //         actions: ["sqs:ReceiveMessage", "sqs:DeleteMessage", "sqs:GetQueueAttributes"],
-    //         resources: [bufferingQueue.queueArn],
-    //       }),
-    //       new iam.PolicyStatement({
-    //         actions: ["sqs:SendMessage"],
-    //         resources: [queueDlq.queueArn],
-    //       }),
-    //     ],
-    //   })
-    // );
-
     const APIGatewayHandlerLambdaExecutionRole = new iam.Role(this, `${project}APIGatewayHandlerLambdaExecutionRole`, {
       assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
       roleName: `${project}APIGatewayHandlerLambdaExecutionRole`,
@@ -102,6 +74,10 @@ export class TalesofsubaInfraCdkStack extends Stack {
           new iam.PolicyStatement({
             actions: ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"],
             resources: ["*"],
+          }),
+          new iam.PolicyStatement({
+            actions: ["secretsmanager:*"],
+            resources: ["arn:aws:lambda:*:*:function:SecretsManager*"],
           }),
         ],
       })
@@ -191,19 +167,6 @@ export class TalesofsubaInfraCdkStack extends Stack {
 
     ////..................Lambda Function................/////////
 
-    //Lambda - SqsHandlerFunction
-
-    // const SqsHandlerFunction = new lambda.Function(this, `${project}sqshandler`, {
-    //   runtime: lambda.Runtime.NODEJS_20_X,
-    //   code: lambda.Code.fromAsset("lambda"),
-    //   handler: "sqshandler.handler",
-    //   functionName: `${project}sqshandler`,
-    //   role: SqsHandlerLambdaExecutionRole,
-    //   environment: {
-    //     table: table.tableName,
-    //   },
-    // });
-
     //Invoking Lambda after integrating with API Gateway
 
     const httpApiIntegInvokeLambda = new apigwv2.CfnIntegration(this, `${project}httpApiIntegInvokeLambda`, {
@@ -246,6 +209,11 @@ export class TalesofsubaInfraCdkStack extends Stack {
       routeKey: "POST /itemupdate",
       target: `integrations/${httpApiIntegInvokeLambda.ref}`,
     });
+    const HttpApiRoute7 = new apigwv2.CfnRoute(this, `${project}HttpApiRoute7`, {
+      apiId: api.ref,
+      routeKey: "POST /getsecrets",
+      target: `integrations/${httpApiIntegInvokeLambda.ref}`,
+    });
 
     // Associate the Lambda function with a CloudWatch Logs log group
     const lambdaLogGroup = new logs.LogGroup(this, "MyLambdaLogGroup", {
@@ -275,6 +243,13 @@ export class TalesofsubaInfraCdkStack extends Stack {
       functionName: ApiGatewayHandlerFunction.functionName,
       principal: "apigateway.amazonaws.com",
       sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/itemupdate`,
+    });
+
+    const HttpApiLambdaPermission4 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission4`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal: "apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/getsecrets`,
     });
 
     ////..................Outputs................/////////
