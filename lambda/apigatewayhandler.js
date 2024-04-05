@@ -81,9 +81,7 @@ exports.handler = async function (event, context) {
             })
           );
           console.log("secretData retrived sucessfully");
-          body = {
-            data: responseobj,
-          };
+          body = responseobj;
           break;
 
         default:

@@ -235,7 +235,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-949365052778-ap-south-1",
-     "S3Key": "dc7ab29b4a418131da193eeafd3c36a0c18eafbc1eea2ce58ee0d755b797aaf9.zip"
+     "S3Key": "98309a6017b958f61df02fdb159cb569aa32638580741bb2f5a8693e00d337bb.zip"
     },
     "Environment": {
      "Variables": {
@@ -260,7 +260,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/Resource",
-    "aws:asset:path": "asset.dc7ab29b4a418131da193eeafd3c36a0c18eafbc1eea2ce58ee0d755b797aaf9",
+    "aws:asset:path": "asset.98309a6017b958f61df02fdb159cb569aa32638580741bb2f5a8693e00d337bb",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
