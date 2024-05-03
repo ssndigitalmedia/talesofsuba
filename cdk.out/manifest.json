@@ -1,247 +1,271 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "TalesofsubaInfraCdkStack.assets": {
+    "SSNDigitalMediaInfraCdkStack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "TalesofsubaInfraCdkStack.assets.json",
+        "file": "SSNDigitalMediaInfraCdkStack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "TalesofsubaInfraCdkStack": {
+    "SSNDigitalMediaInfraCdkStack": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://949365052778/ap-south-1",
+      "environment": "aws://949365052778/us-east-1",
       "properties": {
-        "templateFile": "TalesofsubaInfraCdkStack.template.json",
+        "templateFile": "SSNDigitalMediaInfraCdkStack.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-deploy-role-949365052778-ap-south-1",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-cfn-exec-role-949365052778-ap-south-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-ap-south-1/8e51c0926ecfd515fe6cb1d2e9d2bc97ab7b073f38069a187eb73cec4d990c6b.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-deploy-role-949365052778-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-cfn-exec-role-949365052778-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-us-east-1/94d0abbe49301f404114bbe0e818bc93fd61596e8b62abe7bb3a4ad6b6f2ee5d.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "TalesofsubaInfraCdkStack.assets"
+          "SSNDigitalMediaInfraCdkStack.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-lookup-role-949365052778-ap-south-1",
+          "arn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-lookup-role-949365052778-us-east-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
       },
       "dependencies": [
-        "TalesofsubaInfraCdkStack.assets"
+        "SSNDigitalMediaInfraCdkStack.assets"
       ],
       "metadata": {
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-DLQ/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-DLQ/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaDLQ770F6F11"
+            "data": "SSNDigitalMediaDLQ318B6D77"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-bufferingQueue/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-bufferingQueue/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqabufferingQueue7D436B1B"
+            "data": "SSNDigitalMediabufferingQueueA8C054BA"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-Loggroup/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-Loggroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaLoggroup720FAC98"
+            "data": "SSNDigitalMediaLoggroup4AB3F13A"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-event-table": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-event-table": [
           {
             "type": "aws:cdk:hasPhysicalName",
             "data": {
-              "Ref": "TalesOfSubaqaeventtable3F672998"
+              "Ref": "SSNDigitalMediaeventtableF567E46D"
             }
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-event-table/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-event-table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaeventtable3F672998"
+            "data": "SSNDigitalMediaeventtableF567E46D"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-APIGatewayHandlerLambdaExecutionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF"
+            "data": "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleF463A00F"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy12444C88"
+            "data": "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyF03CD8F4"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerInlinePolicy/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-APIGatewayHandlerInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaAPIGatewayHandlerInlinePolicy2EFFCC96"
+            "data": "SSNDigitalMediaAPIGatewayHandlerInlinePolicy4B17D441"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwV2ToSqsRole/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-ApiGwV2ToSqsRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaApiGwV2ToSqsRole35659AED"
+            "data": "SSNDigitalMediaApiGwV2ToSqsRoleE8305144"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwV2ToSqsInlinePolicy/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-ApiGwV2ToSqsInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaApiGwV2ToSqsInlinePolicyD30BB3C5"
+            "data": "SSNDigitalMediaApiGwV2ToSqsInlinePolicy93C9B46A"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-apigatewayhandler/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaapigatewayhandlerE159EF9B"
+            "data": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubaqabufferingQueueCF8A0FB0/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-apigatewayhandler/SqsEventSource:SSNDigitalMediaInfraCdkStackSSNDigitalMediabufferingQueue910C1F89/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaapigatewayhandlerSqsEventSourceTalesofsubaInfraCdkStackTalesOfSubaqabufferingQueueCF8A0FB0C6EB78DF"
+            "data": "SSNDigitalMediaapigatewayhandlerSqsEventSourceSSNDigitalMediaInfraCdkStackSSNDigitalMediabufferingQueue910C1F890B6F6AE9"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwToLambdaRole/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-ApiGwToLambdaRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaApiGwToLambdaRole205E609F"
+            "data": "SSNDigitalMediaApiGwToLambdaRole0BCC14BC"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwToLambdaInlinePolicy/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-ApiGwToLambdaInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaApiGwToLambdaInlinePolicy359272FB"
+            "data": "SSNDigitalMediaApiGwToLambdaInlinePolicy292F29B6"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpToSqs-API": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpToSqs-API": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpToSqsAPI"
+            "data": "SSNDigitalMediaHttpToSqsAPI"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpToSqsStage": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpToSqsStage": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpToSqsStage"
+            "data": "SSNDigitalMediaHttpToSqsStage"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-httpApiIntegSqsSendMessage": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-httpApiIntegSqsSendMessage": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqahttpApiIntegSqsSendMessage"
+            "data": "SSNDigitalMediahttpApiIntegSqsSendMessage"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-httpApiIntegInvokeLambda": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-httpApiIntegInvokeLambda": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqahttpApiIntegInvokeLambda"
+            "data": "SSNDigitalMediahttpApiIntegInvokeLambda"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg2": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiRouteSqsSendMsg2"
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg2"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg4": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg4": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiRouteSqsSendMsg4"
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg4"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg5": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg5": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiRouteSqsSendMsg5"
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg5"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg6": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg6": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiRouteSqsSendMsg6"
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg6"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg3": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg3": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiRouteSqsSendMsg3"
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg3"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg1": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiRouteSqsSendMsg1"
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg1"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRoute7": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRoute7": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiRoute7"
+            "data": "SSNDigitalMediaHttpApiRoute7"
           }
         ],
-        "/TalesofsubaInfraCdkStack/MyLambdaLogGroup/Resource": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg8": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg8"
+          }
+        ],
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg9": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSNDigitalMediaHttpApiRouteSqsSendMsg9"
+          }
+        ],
+        "/SSNDigitalMediaInfraCdkStack/MyLambdaLogGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MyLambdaLogGroupA24CCB16"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission1": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiLambdaPermission1"
+            "data": "SSNDigitalMediaHttpApiLambdaPermission1"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission2": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiLambdaPermission2"
+            "data": "SSNDigitalMediaHttpApiLambdaPermission2"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission3": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission3": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiLambdaPermission3"
+            "data": "SSNDigitalMediaHttpApiLambdaPermission3"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission4": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission4": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiLambdaPermission4"
+            "data": "SSNDigitalMediaHttpApiLambdaPermission4"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiEndpoint": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission5": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaqaHttpApiEndpoint"
+            "data": "SSNDigitalMediaHttpApiLambdaPermission5"
           }
         ],
-        "/TalesofsubaInfraCdkStack/CDKMetadata/Default": [
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission6": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSNDigitalMediaHttpApiLambdaPermission6"
+          }
+        ],
+        "/SSNDigitalMediaInfraCdkStack/SSNDigitalMedia-HttpApiEndpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSNDigitalMediaHttpApiEndpoint"
+          }
+        ],
+        "/SSNDigitalMediaInfraCdkStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/TalesofsubaInfraCdkStack/BootstrapVersion": [
+        "/SSNDigitalMediaInfraCdkStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/TalesofsubaInfraCdkStack/CheckBootstrapVersion": [
+        "/SSNDigitalMediaInfraCdkStack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "TalesofsubaInfraCdkStack"
+      "displayName": "SSNDigitalMediaInfraCdkStack"
     },
     "Tree": {
       "type": "cdk:tree",

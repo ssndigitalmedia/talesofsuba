@@ -214,6 +214,16 @@ export class TalesofsubaInfraCdkStack extends Stack {
       routeKey: "POST /getsecrets",
       target: `integrations/${httpApiIntegInvokeLambda.ref}`,
     });
+    const HttpApiRoute8 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg8`, {
+      apiId: api.ref,
+      routeKey: "GET /userid/{id}",
+      target: `integrations/${httpApiIntegInvokeLambda.ref}`,
+    });
+    const HttpApiRoute9 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg9`, {
+      apiId: api.ref,
+      routeKey: "GET /items/{column}/{value}",
+      target: `integrations/${httpApiIntegInvokeLambda.ref}`,
+    });
 
     // Associate the Lambda function with a CloudWatch Logs log group
     const lambdaLogGroup = new logs.LogGroup(this, "MyLambdaLogGroup", {
@@ -250,6 +260,18 @@ export class TalesofsubaInfraCdkStack extends Stack {
       functionName: ApiGatewayHandlerFunction.functionName,
       principal: "apigateway.amazonaws.com",
       sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/getsecrets`,
+    });
+    const HttpApiLambdaPermission5 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission5`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal: "apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/userid/{id}`,
+    });
+    const HttpApiLambdaPermission6 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission6`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal: "apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/items/{column}/{value}`,
     });
 
     ////..................Outputs................/////////

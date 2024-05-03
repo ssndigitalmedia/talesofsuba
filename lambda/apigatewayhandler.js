@@ -39,6 +39,14 @@ exports.handler = async function (event, context) {
           body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": "slug" }, ExpressionAttributeValues: { ":value": event.pathParameters.id } }));
           body = body.Items;
           break;
+        case "/items/{column}/{value}":
+          body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": event.pathParameters.column }, ExpressionAttributeValues: { ":value": event.pathParameters.value } }));
+          body = body.Items;
+          break;
+        case "/userid/{id}":
+          body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": "userid" }, ExpressionAttributeValues: { ":value": event.pathParameters.id } }));
+          body = body.Items;
+          break;
         case "/itemupdate":
           const requestJSON = JSON.parse(event.body);
           console.log("Incoming message body from API Gateway for update : ", requestJSON);
