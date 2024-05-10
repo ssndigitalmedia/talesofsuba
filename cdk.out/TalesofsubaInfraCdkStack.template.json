@@ -1,25 +1,25 @@
 {
  "Resources": {
-  "SSNDigitalMediaDLQ318B6D77": {
+  "TalesOfSubaqaDLQ770F6F11": {
    "Type": "AWS::SQS::Queue",
    "Properties": {
-    "QueueName": "SSNDigitalMedia-DLQ",
+    "QueueName": "TalesOfSuba-qa-DLQ",
     "VisibilityTimeout": 300
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-DLQ/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-DLQ/Resource"
    }
   },
-  "SSNDigitalMediabufferingQueueA8C054BA": {
+  "TalesOfSubaqabufferingQueue7D436B1B": {
    "Type": "AWS::SQS::Queue",
    "Properties": {
-    "QueueName": "SSNDigitalMedia-bufferingQueue",
+    "QueueName": "TalesOfSuba-qa-bufferingQueue",
     "RedrivePolicy": {
      "deadLetterTargetArn": {
       "Fn::GetAtt": [
-       "SSNDigitalMediaDLQ318B6D77",
+       "TalesOfSubaqaDLQ770F6F11",
        "Arn"
       ]
      },
@@ -30,10 +30,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-bufferingQueue/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-bufferingQueue/Resource"
    }
   },
-  "SSNDigitalMediaLoggroup4AB3F13A": {
+  "TalesOfSubaqaLoggroup720FAC98": {
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
     "RetentionInDays": 7
@@ -41,10 +41,10 @@
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-Loggroup/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-Loggroup/Resource"
    }
   },
-  "SSNDigitalMediaeventtableF567E46D": {
+  "TalesOfSubaqaeventtable3F672998": {
    "Type": "AWS::DynamoDB::Table",
    "Properties": {
     "AttributeDefinitions": [
@@ -60,15 +60,15 @@
       "KeyType": "HASH"
      }
     ],
-    "TableName": "SSNDigitalMedia-EventTable"
+    "TableName": "TalesOfSuba-qa-EventTable"
    },
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-event-table/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-event-table/Resource"
    }
   },
-  "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleF463A00F": {
+  "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -83,13 +83,13 @@
      ],
      "Version": "2012-10-17"
     },
-    "RoleName": "SSNDigitalMedia-APIGatewayHandlerLambdaExecutionRole"
+    "RoleName": "TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-APIGatewayHandlerLambdaExecutionRole/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole/Resource"
    }
   },
-  "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyF03CD8F4": {
+  "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy12444C88": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -105,7 +105,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "SSNDigitalMediabufferingQueueA8C054BA",
+         "TalesOfSubaqabufferingQueue7D436B1B",
          "Arn"
         ]
        }
@@ -113,24 +113,25 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyF03CD8F4",
+    "PolicyName": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy12444C88",
     "Roles": [
      {
-      "Ref": "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleF463A00F"
+      "Ref": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource"
    }
   },
-  "SSNDigitalMediaAPIGatewayHandlerInlinePolicy4B17D441": {
+  "TalesOfSubaqaAPIGatewayHandlerInlinePolicy2EFFCC96": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
      "Statement": [
       {
        "Action": [
+        "dynamodb:DeleteItem",
         "dynamodb:DescribeLimits",
         "dynamodb:DescribeReservedCapacity*",
         "dynamodb:DescribeTimeToLive",
@@ -143,7 +144,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "SSNDigitalMediaeventtableF567E46D",
+         "TalesOfSubaqaeventtable3F672998",
          "Arn"
         ]
        }
@@ -161,18 +162,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "SSNDigitalMediaAPIGatewayHandlerInlinePolicy4B17D441",
+    "PolicyName": "TalesOfSubaqaAPIGatewayHandlerInlinePolicy2EFFCC96",
     "Roles": [
      {
-      "Ref": "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleF463A00F"
+      "Ref": "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-APIGatewayHandlerInlinePolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-APIGatewayHandlerInlinePolicy/Resource"
    }
   },
-  "SSNDigitalMediaApiGwV2ToSqsRoleE8305144": {
+  "TalesOfSubaqaApiGwV2ToSqsRole35659AED": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -190,13 +191,13 @@
     "ManagedPolicyArns": [
      "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
     ],
-    "RoleName": "SSNDigitalMedia-ApiGwV2ToSqsRole"
+    "RoleName": "TalesOfSuba-qa-ApiGwV2ToSqsRole"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-ApiGwV2ToSqsRole/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwV2ToSqsRole/Resource"
    }
   },
-  "SSNDigitalMediaApiGwV2ToSqsInlinePolicy93C9B46A": {
+  "TalesOfSubaqaApiGwV2ToSqsInlinePolicyD30BB3C5": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -211,7 +212,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "SSNDigitalMediabufferingQueueA8C054BA",
+         "TalesOfSubaqabufferingQueue7D436B1B",
          "Arn"
         ]
        }
@@ -219,70 +220,70 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "SSNDigitalMediaApiGwV2ToSqsInlinePolicy93C9B46A",
+    "PolicyName": "TalesOfSubaqaApiGwV2ToSqsInlinePolicyD30BB3C5",
     "Roles": [
      {
-      "Ref": "SSNDigitalMediaApiGwV2ToSqsRoleE8305144"
+      "Ref": "TalesOfSubaqaApiGwV2ToSqsRole35659AED"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-ApiGwV2ToSqsInlinePolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwV2ToSqsInlinePolicy/Resource"
    }
   },
-  "SSNDigitalMediaapigatewayhandlerE8C9A10B": {
+  "TalesOfSubaqaapigatewayhandlerE159EF9B": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
-     "S3Bucket": "cdk-hnb659fds-assets-949365052778-us-east-1",
-     "S3Key": "9e4f3fa49cea1119b6a90cd6d90165ee3972dc8324cb2509d8e29d4a5d741957.zip"
+     "S3Bucket": "cdk-hnb659fds-assets-949365052778-ap-south-1",
+     "S3Key": "5cb02788c45e526f0d90d4f963321fa38b908cb71234268f52437f8b4788ab21.zip"
     },
     "Environment": {
      "Variables": {
       "table": {
-       "Ref": "SSNDigitalMediaeventtableF567E46D"
+       "Ref": "TalesOfSubaqaeventtable3F672998"
       }
      }
     },
-    "FunctionName": "SSNDigitalMedia-apigatewayhandler",
+    "FunctionName": "TalesOfSuba-qa-apigatewayhandler",
     "Handler": "apigatewayhandler.handler",
     "Role": {
      "Fn::GetAtt": [
-      "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleF463A00F",
+      "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF",
       "Arn"
      ]
     },
     "Runtime": "nodejs20.x"
    },
    "DependsOn": [
-    "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyF03CD8F4",
-    "SSNDigitalMediaAPIGatewayHandlerLambdaExecutionRoleF463A00F"
+    "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy12444C88",
+    "TalesOfSubaqaAPIGatewayHandlerLambdaExecutionRole7CDA81CF"
    ],
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-apigatewayhandler/Resource",
-    "aws:asset:path": "asset.9e4f3fa49cea1119b6a90cd6d90165ee3972dc8324cb2509d8e29d4a5d741957",
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/Resource",
+    "aws:asset:path": "asset.5cb02788c45e526f0d90d4f963321fa38b908cb71234268f52437f8b4788ab21",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
   },
-  "SSNDigitalMediaapigatewayhandlerSqsEventSourceTalesofsubaInfraCdkStackSSNDigitalMediabufferingQueueA0CFF7E9E258A7EE": {
+  "TalesOfSubaqaapigatewayhandlerSqsEventSourceTalesofsubaInfraCdkStackTalesOfSubaqabufferingQueueCF8A0FB0C6EB78DF": {
    "Type": "AWS::Lambda::EventSourceMapping",
    "Properties": {
     "EventSourceArn": {
      "Fn::GetAtt": [
-      "SSNDigitalMediabufferingQueueA8C054BA",
+      "TalesOfSubaqabufferingQueue7D436B1B",
       "Arn"
      ]
     },
     "FunctionName": {
-     "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackSSNDigitalMediabufferingQueueA0CFF7E9/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubaqabufferingQueueCF8A0FB0/Resource"
    }
   },
-  "SSNDigitalMediaApiGwToLambdaRole0BCC14BC": {
+  "TalesOfSubaqaApiGwToLambdaRole205E609F": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -297,13 +298,13 @@
      ],
      "Version": "2012-10-17"
     },
-    "RoleName": "SSNDigitalMedia-ApiGwToLambdaRole"
+    "RoleName": "TalesOfSuba-qa-ApiGwToLambdaRole"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-ApiGwToLambdaRole/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwToLambdaRole/Resource"
    }
   },
-  "SSNDigitalMediaApiGwToLambdaInlinePolicy292F29B6": {
+  "TalesOfSubaqaApiGwToLambdaInlinePolicy359272FB": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -316,7 +317,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "SSNDigitalMediaapigatewayhandlerE8C9A10B",
+         "TalesOfSubaqaapigatewayhandlerE159EF9B",
          "Arn"
         ]
        }
@@ -324,18 +325,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "SSNDigitalMediaApiGwToLambdaInlinePolicy292F29B6",
+    "PolicyName": "TalesOfSubaqaApiGwToLambdaInlinePolicy359272FB",
     "Roles": [
      {
-      "Ref": "SSNDigitalMediaApiGwToLambdaRole0BCC14BC"
+      "Ref": "TalesOfSubaqaApiGwToLambdaRole205E609F"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-ApiGwToLambdaInlinePolicy/Resource"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-ApiGwToLambdaInlinePolicy/Resource"
    }
   },
-  "SSNDigitalMediaHttpToSqsAPI": {
+  "TalesOfSubaqaHttpToSqsAPI": {
    "Type": "AWS::ApiGatewayV2::Api",
    "Properties": {
     "CorsConfiguration": {
@@ -354,44 +355,44 @@
      ],
      "MaxAge": 43200
     },
-    "Name": "SSNDigitalMedia-function",
+    "Name": "TalesOfSuba-qa-function",
     "ProtocolType": "HTTP"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpToSqs-API"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpToSqs-API"
    }
   },
-  "SSNDigitalMediaHttpToSqsStage": {
+  "TalesOfSubaqaHttpToSqsStage": {
    "Type": "AWS::ApiGatewayV2::Stage",
    "Properties": {
     "AccessLogSettings": {
      "DestinationArn": {
       "Fn::GetAtt": [
-       "SSNDigitalMediaLoggroup4AB3F13A",
+       "TalesOfSubaqaLoggroup720FAC98",
        "Arn"
       ]
      },
      "Format": "{ \"requestId\":\"$context.requestId\", \"ip\": \"$context.identity.sourceIp\", \"requestTime\":\"$context.requestTime\", \"httpMethod\":\"$context.httpMethod\",\"routeKey\":\"$context.routeKey\", \"status\":\"$context.status\",\"protocol\":\"$context.protocol\", \"responseLength\":\"$context.responseLength\" }"
     },
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "AutoDeploy": true,
     "StageName": "$default"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpToSqsStage"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpToSqsStage"
    }
   },
-  "SSNDigitalMediahttpApiIntegSqsSendMessage": {
+  "TalesOfSubaqahttpApiIntegSqsSendMessage": {
    "Type": "AWS::ApiGatewayV2::Integration",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "CredentialsArn": {
      "Fn::GetAtt": [
-      "SSNDigitalMediaApiGwV2ToSqsRoleE8305144",
+      "TalesOfSubaqaApiGwV2ToSqsRole35659AED",
       "Arn"
      ]
     },
@@ -400,45 +401,45 @@
     "PayloadFormatVersion": "1.0",
     "RequestParameters": {
      "QueueUrl": {
-      "Ref": "SSNDigitalMediabufferingQueueA8C054BA"
+      "Ref": "TalesOfSubaqabufferingQueue7D436B1B"
      },
      "MessageBody": "$request.body"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-httpApiIntegSqsSendMessage"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-httpApiIntegSqsSendMessage"
    }
   },
-  "SSNDigitalMediahttpApiIntegInvokeLambda": {
+  "TalesOfSubaqahttpApiIntegInvokeLambda": {
    "Type": "AWS::ApiGatewayV2::Integration",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "CredentialsArn": {
      "Fn::GetAtt": [
-      "SSNDigitalMediaApiGwToLambdaRole0BCC14BC",
+      "TalesOfSubaqaApiGwToLambdaRole205E609F",
       "Arn"
      ]
     },
     "IntegrationType": "AWS_PROXY",
     "IntegrationUri": {
      "Fn::GetAtt": [
-      "SSNDigitalMediaapigatewayhandlerE8C9A10B",
+      "TalesOfSubaqaapigatewayhandlerE159EF9B",
       "Arn"
      ]
     },
     "PayloadFormatVersion": "1.0"
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-httpApiIntegInvokeLambda"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-httpApiIntegInvokeLambda"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg2": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg2": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "GET /itemsbytype/{id}",
     "Target": {
@@ -447,21 +448,21 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg2"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg2"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg4": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg4": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "GET /items/{id}",
     "Target": {
@@ -470,21 +471,21 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg4"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg4"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg5": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg5": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "PUT /items",
     "Target": {
@@ -493,21 +494,21 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegSqsSendMessage"
+        "Ref": "TalesOfSubaqahttpApiIntegSqsSendMessage"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg5"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg5"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg6": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg6": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "POST /items",
     "Target": {
@@ -516,44 +517,44 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegSqsSendMessage"
+        "Ref": "TalesOfSubaqahttpApiIntegSqsSendMessage"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg6"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg6"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg3": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg3": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
-    "RouteKey": "DELETE /items/{id}",
+    "RouteKey": "DELETE /removeitem/{id}",
     "Target": {
      "Fn::Join": [
       "",
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg3"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg3"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg1": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg1": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "POST /itemupdate",
     "Target": {
@@ -562,21 +563,21 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg1"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg1"
    }
   },
-  "SSNDigitalMediaHttpApiRoute7": {
+  "TalesOfSubaqaHttpApiRoute7": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "POST /getsecrets",
     "Target": {
@@ -585,21 +586,21 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRoute7"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRoute7"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg8": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg8": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "GET /userid/{id}",
     "Target": {
@@ -608,21 +609,21 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg8"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg8"
    }
   },
-  "SSNDigitalMediaHttpApiRouteSqsSendMsg9": {
+  "TalesOfSubaqaHttpApiRouteSqsSendMsg9": {
    "Type": "AWS::ApiGatewayV2::Route",
    "Properties": {
     "ApiId": {
-     "Ref": "SSNDigitalMediaHttpToSqsAPI"
+     "Ref": "TalesOfSubaqaHttpToSqsAPI"
     },
     "RouteKey": "GET /items/{column}/{value}",
     "Target": {
@@ -631,14 +632,14 @@
       [
        "integrations/",
        {
-        "Ref": "SSNDigitalMediahttpApiIntegInvokeLambda"
+        "Ref": "TalesOfSubaqahttpApiIntegInvokeLambda"
        }
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiRouteSqsSendMsg9"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiRouteSqsSendMsg9"
    }
   },
   "MyLambdaLogGroupA24CCB16": {
@@ -650,7 +651,7 @@
       [
        "/aws/lambda/",
        {
-        "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+        "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
        }
       ]
      ]
@@ -663,21 +664,21 @@
     "aws:cdk:path": "TalesofsubaInfraCdkStack/MyLambdaLogGroup/Resource"
    }
   },
-  "SSNDigitalMediaHttpApiLambdaPermission1": {
+  "TalesOfSubaqaHttpApiLambdaPermission1": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:aws:execute-api:us-east-1:949365052778:",
+       "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "SSNDigitalMediaHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/items/{id}"
       ]
@@ -685,24 +686,24 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission1"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission1"
    }
   },
-  "SSNDigitalMediaHttpApiLambdaPermission2": {
+  "TalesOfSubaqaHttpApiLambdaPermission2": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:aws:execute-api:us-east-1:949365052778:",
+       "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "SSNDigitalMediaHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/itemsbytype/{id}"
       ]
@@ -710,24 +711,24 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission2"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission2"
    }
   },
-  "SSNDigitalMediaHttpApiLambdaPermission3": {
+  "TalesOfSubaqaHttpApiLambdaPermission3": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:aws:execute-api:us-east-1:949365052778:",
+       "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "SSNDigitalMediaHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/itemupdate"
       ]
@@ -735,24 +736,24 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission3"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission3"
    }
   },
-  "SSNDigitalMediaHttpApiLambdaPermission4": {
+  "TalesOfSubaqaHttpApiLambdaPermission4": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:aws:execute-api:us-east-1:949365052778:",
+       "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "SSNDigitalMediaHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/getsecrets"
       ]
@@ -760,24 +761,24 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission4"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission4"
    }
   },
-  "SSNDigitalMediaHttpApiLambdaPermission5": {
+  "TalesOfSubaqaHttpApiLambdaPermission5": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:aws:execute-api:us-east-1:949365052778:",
+       "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "SSNDigitalMediaHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/userid/{id}"
       ]
@@ -785,24 +786,24 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission5"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission5"
    }
   },
-  "SSNDigitalMediaHttpApiLambdaPermission6": {
+  "TalesOfSubaqaHttpApiLambdaPermission6": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Ref": "SSNDigitalMediaapigatewayhandlerE8C9A10B"
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:aws:execute-api:us-east-1:949365052778:",
+       "arn:aws:execute-api:ap-south-1:949365052778:",
        {
-        "Ref": "SSNDigitalMediaHttpToSqsAPI"
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
        },
        "/*/*/items/{column}/{value}"
       ]
@@ -810,7 +811,32 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TalesofsubaInfraCdkStack/SSNDigitalMedia-HttpApiLambdaPermission6"
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission6"
+   }
+  },
+  "TalesOfSubaqaHttpApiLambdaPermission7": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Ref": "TalesOfSubaqaapigatewayhandlerE159EF9B"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:aws:execute-api:ap-south-1:949365052778:",
+       {
+        "Ref": "TalesOfSubaqaHttpToSqsAPI"
+       },
+       "/*/*/removeitem/{id}"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TalesofsubaInfraCdkStack/TalesOfSuba-qa-HttpApiLambdaPermission7"
    }
   },
   "CDKMetadata": {
@@ -824,11 +850,11 @@
   }
  },
  "Outputs": {
-  "SSNDigitalMediaHttpApiEndpoint": {
+  "TalesOfSubaqaHttpApiEndpoint": {
    "Description": "API Endpoint",
    "Value": {
     "Fn::GetAtt": [
-     "SSNDigitalMediaHttpToSqsAPI",
+     "TalesOfSubaqaHttpToSqsAPI",
      "ApiEndpoint"
     ]
    }

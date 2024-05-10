@@ -13,13 +13,13 @@ export class TalesofsubaInfraCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    var project = "";
+    var project = "TalesOfSuba-";
 
     ////..................SQS QUEUES................./////////
     if (`${cdk.Stack.of(this).region}` == "us-east-1") {
-      project = "TalesOfSuba-";
+      project = project;
     } else if (`${cdk.Stack.of(this).region}` == "ap-south-1") {
-      project = "TalesOfSuba-qa-";
+      project = project + "qa-";
     } else {
       return;
     }
@@ -68,7 +68,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
       new iam.Policy(this, `${project}APIGatewayHandlerInlinePolicy`, {
         statements: [
           new iam.PolicyStatement({
-            actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem", "dynamodb:UpdateItem", "dynamodb:Scan"],
+            actions: ["dynamodb:List*", "dynamodb:DescribeReservedCapacity*", "dynamodb:DescribeLimits", "dynamodb:DescribeTimeToLive", "dynamodb:Get*", "dynamodb:PutItem", "dynamodb:UpdateItem", "dynamodb:DeleteItem", "dynamodb:Scan"],
             resources: [table.tableArn],
           }),
           new iam.PolicyStatement({
@@ -201,7 +201,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
     });
     const HttpApiRoute3 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg3`, {
       apiId: api.ref,
-      routeKey: "DELETE /items/{id}",
+      routeKey: "DELETE /removeitem/{id}",
       target: `integrations/${httpApiIntegInvokeLambda.ref}`,
     });
     const HttpApiRoute1 = new apigwv2.CfnRoute(this, `${project}HttpApiRouteSqsSendMsg1`, {
@@ -272,6 +272,12 @@ export class TalesofsubaInfraCdkStack extends Stack {
       functionName: ApiGatewayHandlerFunction.functionName,
       principal: "apigateway.amazonaws.com",
       sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/items/{column}/{value}`,
+    });
+    const HttpApiLambdaPermission7 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission7`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal: "apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/removeitem/{id}`,
     });
 
     ////..................Outputs................/////////

@@ -36,8 +36,21 @@ exports.handler = async function (event, context) {
           body = body.Items;
           break;
         case "/items/{id}":
+          console.log("Incoming Get request : ", event.pathParameters.id);
           body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": "slug" }, ExpressionAttributeValues: { ":value": event.pathParameters.id } }));
           body = body.Items;
+          break;
+        case "/removeitem/{id}":
+          console.log("Incoming Delete request : ", event.pathParameters.id);
+          await dynamo.send(
+            new DeleteCommand({
+              TableName: tableName,
+              Key: {
+                id: event.pathParameters.id,
+              },
+            })
+          );
+          body = `Deleted item ${event.pathParameters.id}`;
           break;
         case "/items/{column}/{value}":
           body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": event.pathParameters.column }, ExpressionAttributeValues: { ":value": event.pathParameters.value } }));
