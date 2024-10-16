@@ -14,6 +14,8 @@ export class TalesofsubaInfraCdkStack extends Stack {
     super(scope, id, props);
 
     var project = "TalesOfSuba-";
+    // var project = "KnowUrCircle-";
+    // var project = "SSNDigitalMedia-";
 
     ////..................SQS QUEUES................./////////
     if (`${cdk.Stack.of(this).region}` == "us-east-1") {

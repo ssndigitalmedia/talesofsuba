@@ -28,6 +28,8 @@ exports.handler = async function (event, context) {
           Item: requestJSON,
         })
       );
+      statusCode = 200;
+      body = JSON.parse(Records[0].body);
       console.log("SQS request Successfully written to DynamoDB");
     } else {
       switch (event.resource) {
