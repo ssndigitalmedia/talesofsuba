@@ -226,6 +226,11 @@ export class TalesofsubaInfraCdkStack extends Stack {
       routeKey: "GET /items/{column}/{value}",
       target: `integrations/${httpApiIntegInvokeLambda.ref}`,
     });
+    const HttpApiRoute10 = new apigwv2.CfnRoute(this, `${project}HttpApiRoute10`, {
+      apiId: api.ref,
+      routeKey: "POST /items/filter2column",
+      target: `integrations/${httpApiIntegInvokeLambda.ref}`,
+    });
 
     // Associate the Lambda function with a CloudWatch Logs log group
     const lambdaLogGroup = new logs.LogGroup(this, "MyLambdaLogGroup", {
@@ -280,6 +285,12 @@ export class TalesofsubaInfraCdkStack extends Stack {
       functionName: ApiGatewayHandlerFunction.functionName,
       principal: "apigateway.amazonaws.com",
       sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/removeitem/{id}`,
+    });
+    const HttpApiLambdaPermission8 = new lambda.CfnPermission(this, `${project}HttpApiLambdaPermission8`, {
+      action: "lambda:InvokeFunction",
+      functionName: ApiGatewayHandlerFunction.functionName,
+      principal: "apigateway.amazonaws.com",
+      sourceArn: `arn:aws:execute-api:${cdk.Stack.of(this).region}:${cdk.Stack.of(this).account}:${api.ref}/*/*/items/filter2column`,
     });
 
     ////..................Outputs................/////////

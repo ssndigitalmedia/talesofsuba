@@ -9,7 +9,7 @@ const app = new cdk.App();
 new TalesofsubaInfraCdkStack(app, "TalesofsubaInfraCdkStack", {
   env: {
     account: "949365052778",
-    region: "ap-south-1",
-    //region: "us-east-1",
+    //region: "ap-south-1",
+    region: "us-east-1",
   },
 });

@@ -58,6 +58,7 @@ exports.handler = async function (event, context) {
           body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": event.pathParameters.column }, ExpressionAttributeValues: { ":value": event.pathParameters.value } }));
           body = body.Items;
           break;
+
         case "/userid/{id}":
           body = await dynamo.send(new ScanCommand({ TableName: tableName, FilterExpression: "contains(#columnname, :value)", ExpressionAttributeNames: { "#columnname": "userid" }, ExpressionAttributeValues: { ":value": event.pathParameters.id } }));
           body = body.Items;
@@ -80,6 +81,28 @@ exports.handler = async function (event, context) {
           );
           body = body.Items;
           console.log("DD sucessfully updated : ", requestJSON);
+          break;
+        case "/items/filter2column":
+          // Parse JSON body (make sure body is JSON-parsed)
+          const requestBody = JSON.parse(event.body);
+          const { column1, value1, column2, value2 } = requestBody;
+          // Define the ScanCommand with FilterExpression for two conditions
+          body = await dynamo.send(
+            new ScanCommand({
+              TableName: tableName,
+              FilterExpression: "#column1 = :value1 AND #column2 = :value2",
+              ExpressionAttributeNames: {
+                "#column1": column1,
+                "#column2": column2,
+              },
+              ExpressionAttributeValues: {
+                ":value1": value1,
+                ":value2": value2,
+              },
+            })
+          );
+          body = body.Items;
+          console.log("DD sucessfully filtered 2 column : ", requestBody);
           break;
         case "/getsecrets":
           const secret_name = "prod/s3/ap-south";
