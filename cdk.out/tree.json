@@ -4,21 +4,21 @@
     "id": "App",
     "path": "",
     "children": {
-      "TalesofsubaInfraCdkStack": {
-        "id": "TalesofsubaInfraCdkStack",
-        "path": "TalesofsubaInfraCdkStack",
+      "SSNMobileAppInfraCdkStack": {
+        "id": "SSNMobileAppInfraCdkStack",
+        "path": "SSNMobileAppInfraCdkStack",
         "children": {
-          "TalesOfSuba-DLQ": {
-            "id": "TalesOfSuba-DLQ",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-DLQ",
+          "SSNMobileApp-DLQ": {
+            "id": "SSNMobileApp-DLQ",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-DLQ",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-DLQ/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-DLQ/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
                   "aws:cdk:cloudformation:props": {
-                    "queueName": "TalesOfSuba-DLQ",
+                    "queueName": "SSNMobileApp-DLQ",
                     "visibilityTimeout": 300
                   }
                 },
@@ -33,21 +33,21 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-bufferingQueue": {
-            "id": "TalesOfSuba-bufferingQueue",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-bufferingQueue",
+          "SSNMobileApp-bufferingQueue": {
+            "id": "SSNMobileApp-bufferingQueue",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-bufferingQueue",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-bufferingQueue/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-bufferingQueue/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
                   "aws:cdk:cloudformation:props": {
-                    "queueName": "TalesOfSuba-bufferingQueue",
+                    "queueName": "SSNMobileApp-bufferingQueue",
                     "redrivePolicy": {
                       "deadLetterTargetArn": {
                         "Fn::GetAtt": [
-                          "TalesOfSubaDLQ73095311",
+                          "SSNMobileAppDLQ89985073",
                           "Arn"
                         ]
                       },
@@ -67,13 +67,13 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-Loggroup": {
-            "id": "TalesOfSuba-Loggroup",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-Loggroup",
+          "SSNMobileApp-Loggroup": {
+            "id": "SSNMobileApp-Loggroup",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-Loggroup",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-Loggroup/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-Loggroup/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                   "aws:cdk:cloudformation:props": {
@@ -91,13 +91,13 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-event-table": {
-            "id": "TalesOfSuba-event-table",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-event-table",
+          "SSNMobileApp-event-table": {
+            "id": "SSNMobileApp-event-table",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-event-table",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-event-table/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-event-table/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
                   "aws:cdk:cloudformation:props": {
@@ -114,7 +114,7 @@
                         "keyType": "HASH"
                       }
                     ],
-                    "tableName": "TalesOfSuba-EventTable"
+                    "tableName": "SSNMobileApp-EventTable"
                   }
                 },
                 "constructInfo": {
@@ -124,7 +124,7 @@
               },
               "ScalingRole": {
                 "id": "ScalingRole",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-event-table/ScalingRole",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-event-table/ScalingRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -136,13 +136,13 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-APIGatewayHandlerLambdaExecutionRole": {
-            "id": "TalesOfSuba-APIGatewayHandlerLambdaExecutionRole",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole",
+          "SSNMobileApp-APIGatewayHandlerLambdaExecutionRole": {
+            "id": "SSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
             "children": {
-              "ImportTalesOfSuba-APIGatewayHandlerLambdaExecutionRole": {
-                "id": "ImportTalesOfSuba-APIGatewayHandlerLambdaExecutionRole",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole/ImportTalesOfSuba-APIGatewayHandlerLambdaExecutionRole",
+              "ImportSSNMobileApp-APIGatewayHandlerLambdaExecutionRole": {
+                "id": "ImportSSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/ImportSSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -150,7 +150,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -166,7 +166,7 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "roleName": "TalesOfSuba-APIGatewayHandlerLambdaExecutionRole"
+                    "roleName": "SSNMobileApp-APIGatewayHandlerLambdaExecutionRole"
                   }
                 },
                 "constructInfo": {
@@ -176,11 +176,11 @@
               },
               "DefaultPolicy": {
                 "id": "DefaultPolicy",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource",
+                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                       "aws:cdk:cloudformation:props": {
@@ -197,7 +197,7 @@
                               "Effect": "Allow",
                               "Resource": {
                                 "Fn::GetAtt": [
-                                  "TalesOfSubabufferingQueue32E7095F",
+                                  "SSNMobileAppbufferingQueueFAB12287",
                                   "Arn"
                                 ]
                               }
@@ -205,10 +205,10 @@
                           ],
                           "Version": "2012-10-17"
                         },
-                        "policyName": "TalesOfSubaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyBFE8EF8A",
+                        "policyName": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy5B13261F",
                         "roles": [
                           {
-                            "Ref": "TalesOfSubaAPIGatewayHandlerLambdaExecutionRole6EA0DBF8"
+                            "Ref": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E"
                           }
                         ]
                       }
@@ -230,13 +230,13 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-APIGatewayHandlerInlinePolicy": {
-            "id": "TalesOfSuba-APIGatewayHandlerInlinePolicy",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerInlinePolicy",
+          "SSNMobileApp-APIGatewayHandlerInlinePolicy": {
+            "id": "SSNMobileApp-APIGatewayHandlerInlinePolicy",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerInlinePolicy",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerInlinePolicy/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerInlinePolicy/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                   "aws:cdk:cloudformation:props": {
@@ -257,7 +257,7 @@
                           "Effect": "Allow",
                           "Resource": {
                             "Fn::GetAtt": [
-                              "TalesOfSubaeventtable3AFF9B6D",
+                              "SSNMobileAppeventtableF4774717",
                               "Arn"
                             ]
                           }
@@ -275,10 +275,10 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "policyName": "TalesOfSubaAPIGatewayHandlerInlinePolicy34E1C15B",
+                    "policyName": "SSNMobileAppAPIGatewayHandlerInlinePolicyFAE1AEAD",
                     "roles": [
                       {
-                        "Ref": "TalesOfSubaAPIGatewayHandlerLambdaExecutionRole6EA0DBF8"
+                        "Ref": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E"
                       }
                     ]
                   }
@@ -294,13 +294,13 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-ApiGwV2ToSqsRole": {
-            "id": "TalesOfSuba-ApiGwV2ToSqsRole",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwV2ToSqsRole",
+          "SSNMobileApp-ApiGwV2ToSqsRole": {
+            "id": "SSNMobileApp-ApiGwV2ToSqsRole",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole",
             "children": {
-              "ImportTalesOfSuba-ApiGwV2ToSqsRole": {
-                "id": "ImportTalesOfSuba-ApiGwV2ToSqsRole",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwV2ToSqsRole/ImportTalesOfSuba-ApiGwV2ToSqsRole",
+              "ImportSSNMobileApp-ApiGwV2ToSqsRole": {
+                "id": "ImportSSNMobileApp-ApiGwV2ToSqsRole",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole/ImportSSNMobileApp-ApiGwV2ToSqsRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -308,7 +308,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwV2ToSqsRole/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -327,7 +327,7 @@
                     "managedPolicyArns": [
                       "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
                     ],
-                    "roleName": "TalesOfSuba-ApiGwV2ToSqsRole"
+                    "roleName": "SSNMobileApp-ApiGwV2ToSqsRole"
                   }
                 },
                 "constructInfo": {
@@ -343,19 +343,19 @@
           },
           "ApiGwPushCwPolicy": {
             "id": "ApiGwPushCwPolicy",
-            "path": "TalesofsubaInfraCdkStack/ApiGwPushCwPolicy",
+            "path": "SSNMobileAppInfraCdkStack/ApiGwPushCwPolicy",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-ApiGwV2ToSqsInlinePolicy": {
-            "id": "TalesOfSuba-ApiGwV2ToSqsInlinePolicy",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwV2ToSqsInlinePolicy",
+          "SSNMobileApp-ApiGwV2ToSqsInlinePolicy": {
+            "id": "SSNMobileApp-ApiGwV2ToSqsInlinePolicy",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsInlinePolicy",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwV2ToSqsInlinePolicy/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsInlinePolicy/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                   "aws:cdk:cloudformation:props": {
@@ -371,7 +371,7 @@
                           "Effect": "Allow",
                           "Resource": {
                             "Fn::GetAtt": [
-                              "TalesOfSubabufferingQueue32E7095F",
+                              "SSNMobileAppbufferingQueueFAB12287",
                               "Arn"
                             ]
                           }
@@ -379,10 +379,10 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "policyName": "TalesOfSubaApiGwV2ToSqsInlinePolicy1688FD0B",
+                    "policyName": "SSNMobileAppApiGwV2ToSqsInlinePolicy14F49604",
                     "roles": [
                       {
-                        "Ref": "TalesOfSubaApiGwV2ToSqsRoleA3921543"
+                        "Ref": "SSNMobileAppApiGwV2ToSqsRole9550C7E1"
                       }
                     ]
                   }
@@ -398,17 +398,17 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-apigatewayhandler": {
-            "id": "TalesOfSuba-apigatewayhandler",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler",
+          "SSNMobileApp-apigatewayhandler": {
+            "id": "SSNMobileApp-apigatewayhandler",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler",
             "children": {
               "Code": {
                 "id": "Code",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/Code",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/Code/Stage",
+                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.118.0"
@@ -416,7 +416,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/Code/AssetBucket",
+                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.118.0"
@@ -430,7 +430,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -441,15 +441,15 @@
                     "environment": {
                       "variables": {
                         "table": {
-                          "Ref": "TalesOfSubaeventtable3AFF9B6D"
+                          "Ref": "SSNMobileAppeventtableF4774717"
                         }
                       }
                     },
-                    "functionName": "TalesOfSuba-apigatewayhandler",
+                    "functionName": "SSNMobileApp-apigatewayhandler",
                     "handler": "apigatewayhandler.handler",
                     "role": {
                       "Fn::GetAtt": [
-                        "TalesOfSubaAPIGatewayHandlerLambdaExecutionRole6EA0DBF8",
+                        "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E",
                         "Arn"
                       ]
                     },
@@ -461,24 +461,24 @@
                   "version": "2.118.0"
                 }
               },
-              "SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF": {
-                "id": "SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF",
+              "SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D": {
+                "id": "SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF/Resource",
+                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::Lambda::EventSourceMapping",
                       "aws:cdk:cloudformation:props": {
                         "eventSourceArn": {
                           "Fn::GetAtt": [
-                            "TalesOfSubabufferingQueue32E7095F",
+                            "SSNMobileAppbufferingQueueFAB12287",
                             "Arn"
                           ]
                         },
                         "functionName": {
-                          "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                          "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                         }
                       }
                     },
@@ -499,13 +499,13 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-ApiGwToLambdaRole": {
-            "id": "TalesOfSuba-ApiGwToLambdaRole",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaRole",
+          "SSNMobileApp-ApiGwToLambdaRole": {
+            "id": "SSNMobileApp-ApiGwToLambdaRole",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole",
             "children": {
-              "ImportTalesOfSuba-ApiGwToLambdaRole": {
-                "id": "ImportTalesOfSuba-ApiGwToLambdaRole",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaRole/ImportTalesOfSuba-ApiGwToLambdaRole",
+              "ImportSSNMobileApp-ApiGwToLambdaRole": {
+                "id": "ImportSSNMobileApp-ApiGwToLambdaRole",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole/ImportSSNMobileApp-ApiGwToLambdaRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -513,7 +513,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaRole/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -529,7 +529,7 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "roleName": "TalesOfSuba-ApiGwToLambdaRole"
+                    "roleName": "SSNMobileApp-ApiGwToLambdaRole"
                   }
                 },
                 "constructInfo": {
@@ -543,13 +543,13 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-ApiGwToLambdaInlinePolicy": {
-            "id": "TalesOfSuba-ApiGwToLambdaInlinePolicy",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaInlinePolicy",
+          "SSNMobileApp-ApiGwToLambdaInlinePolicy": {
+            "id": "SSNMobileApp-ApiGwToLambdaInlinePolicy",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaInlinePolicy",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaInlinePolicy/Resource",
+                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaInlinePolicy/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                   "aws:cdk:cloudformation:props": {
@@ -563,7 +563,7 @@
                           "Effect": "Allow",
                           "Resource": {
                             "Fn::GetAtt": [
-                              "TalesOfSubaapigatewayhandler01D9B7D6",
+                              "SSNMobileAppapigatewayhandlerCAA264B7",
                               "Arn"
                             ]
                           }
@@ -571,10 +571,10 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "policyName": "TalesOfSubaApiGwToLambdaInlinePolicyD7BAF05E",
+                    "policyName": "SSNMobileAppApiGwToLambdaInlinePolicy6E266B84",
                     "roles": [
                       {
-                        "Ref": "TalesOfSubaApiGwToLambdaRoleAE994376"
+                        "Ref": "SSNMobileAppApiGwToLambdaRoleC5C16745"
                       }
                     ]
                   }
@@ -590,9 +590,9 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpToSqs-API": {
-            "id": "TalesOfSuba-HttpToSqs-API",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpToSqs-API",
+          "SSNMobileApp-HttpToSqs-API": {
+            "id": "SSNMobileApp-HttpToSqs-API",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqs-API",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Api",
               "aws:cdk:cloudformation:props": {
@@ -612,7 +612,7 @@
                   ],
                   "maxAge": 43200
                 },
-                "name": "TalesOfSuba-function",
+                "name": "SSNMobileApp-function",
                 "protocolType": "HTTP"
               }
             },
@@ -621,23 +621,23 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpToSqsStage": {
-            "id": "TalesOfSuba-HttpToSqsStage",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpToSqsStage",
+          "SSNMobileApp-HttpToSqsStage": {
+            "id": "SSNMobileApp-HttpToSqsStage",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqsStage",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Stage",
               "aws:cdk:cloudformation:props": {
                 "accessLogSettings": {
                   "destinationArn": {
                     "Fn::GetAtt": [
-                      "TalesOfSubaLoggroupBFE819EB",
+                      "SSNMobileAppLoggroup56441AF8",
                       "Arn"
                     ]
                   },
                   "format": "{ \"requestId\":\"$context.requestId\", \"ip\": \"$context.identity.sourceIp\", \"requestTime\":\"$context.requestTime\", \"httpMethod\":\"$context.httpMethod\",\"routeKey\":\"$context.routeKey\", \"status\":\"$context.status\",\"protocol\":\"$context.protocol\", \"responseLength\":\"$context.responseLength\" }"
                 },
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "autoDeploy": true,
                 "stageName": "$default"
@@ -648,18 +648,18 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-httpApiIntegSqsSendMessage": {
-            "id": "TalesOfSuba-httpApiIntegSqsSendMessage",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-httpApiIntegSqsSendMessage",
+          "SSNMobileApp-httpApiIntegSqsSendMessage": {
+            "id": "SSNMobileApp-httpApiIntegSqsSendMessage",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegSqsSendMessage",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Integration",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "credentialsArn": {
                   "Fn::GetAtt": [
-                    "TalesOfSubaApiGwV2ToSqsRoleA3921543",
+                    "SSNMobileAppApiGwV2ToSqsRole9550C7E1",
                     "Arn"
                   ]
                 },
@@ -668,7 +668,7 @@
                 "payloadFormatVersion": "1.0",
                 "requestParameters": {
                   "QueueUrl": {
-                    "Ref": "TalesOfSubabufferingQueue32E7095F"
+                    "Ref": "SSNMobileAppbufferingQueueFAB12287"
                   },
                   "MessageBody": "$request.body"
                 }
@@ -679,25 +679,25 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-httpApiIntegInvokeLambda": {
-            "id": "TalesOfSuba-httpApiIntegInvokeLambda",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-httpApiIntegInvokeLambda",
+          "SSNMobileApp-httpApiIntegInvokeLambda": {
+            "id": "SSNMobileApp-httpApiIntegInvokeLambda",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegInvokeLambda",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Integration",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "credentialsArn": {
                   "Fn::GetAtt": [
-                    "TalesOfSubaApiGwToLambdaRoleAE994376",
+                    "SSNMobileAppApiGwToLambdaRoleC5C16745",
                     "Arn"
                   ]
                 },
                 "integrationType": "AWS_PROXY",
                 "integrationUri": {
                   "Fn::GetAtt": [
-                    "TalesOfSubaapigatewayhandler01D9B7D6",
+                    "SSNMobileAppapigatewayhandlerCAA264B7",
                     "Arn"
                   ]
                 },
@@ -709,14 +709,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg2": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg2",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg2",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg2": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg2",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg2",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /itemsbytype/{id}",
                 "target": {
@@ -725,7 +725,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -737,14 +737,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg4": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg4",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg4",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg4": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg4",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg4",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /items/{id}",
                 "target": {
@@ -753,7 +753,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -765,14 +765,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg5": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg5",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg5",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg5": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg5",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg5",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "PUT /items",
                 "target": {
@@ -781,7 +781,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegSqsSendMessage"
+                        "Ref": "SSNMobileApphttpApiIntegSqsSendMessage"
                       }
                     ]
                   ]
@@ -793,14 +793,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg6": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg6",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg6",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg6": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg6",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg6",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /items",
                 "target": {
@@ -809,7 +809,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegSqsSendMessage"
+                        "Ref": "SSNMobileApphttpApiIntegSqsSendMessage"
                       }
                     ]
                   ]
@@ -821,14 +821,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg3": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg3",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg3",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg3": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg3",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg3",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "DELETE /removeitem/{id}",
                 "target": {
@@ -837,7 +837,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -849,14 +849,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg1": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg1",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg1",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg1": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg1",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg1",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /itemupdate",
                 "target": {
@@ -865,7 +865,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -877,14 +877,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRoute7": {
-            "id": "TalesOfSuba-HttpApiRoute7",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRoute7",
+          "SSNMobileApp-HttpApiRoute7": {
+            "id": "SSNMobileApp-HttpApiRoute7",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute7",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /getsecrets",
                 "target": {
@@ -893,7 +893,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -905,14 +905,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg8": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg8",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg8",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg8": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg8",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg8",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /userid/{id}",
                 "target": {
@@ -921,7 +921,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -933,14 +933,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRouteSqsSendMsg9": {
-            "id": "TalesOfSuba-HttpApiRouteSqsSendMsg9",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg9",
+          "SSNMobileApp-HttpApiRouteSqsSendMsg9": {
+            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg9",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg9",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /items/{column}/{value}",
                 "target": {
@@ -949,7 +949,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -961,14 +961,14 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiRoute10": {
-            "id": "TalesOfSuba-HttpApiRoute10",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRoute10",
+          "SSNMobileApp-HttpApiRoute10": {
+            "id": "SSNMobileApp-HttpApiRoute10",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute10",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "TalesOfSubaHttpToSqsAPI"
+                  "Ref": "SSNMobileAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /items/filter2column",
                 "target": {
@@ -977,7 +977,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "TalesOfSubahttpApiIntegInvokeLambda"
+                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -991,11 +991,11 @@
           },
           "MyLambdaLogGroup": {
             "id": "MyLambdaLogGroup",
-            "path": "TalesofsubaInfraCdkStack/MyLambdaLogGroup",
+            "path": "SSNMobileAppInfraCdkStack/MyLambdaLogGroup",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "TalesofsubaInfraCdkStack/MyLambdaLogGroup/Resource",
+                "path": "SSNMobileAppInfraCdkStack/MyLambdaLogGroup/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                   "aws:cdk:cloudformation:props": {
@@ -1005,7 +1005,7 @@
                         [
                           "/aws/lambda/",
                           {
-                            "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                            "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                           }
                         ]
                       ]
@@ -1024,15 +1024,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission1": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission1",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission1",
+          "SSNMobileApp-HttpApiLambdaPermission1": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission1",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission1",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1041,7 +1041,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/items/{id}"
                     ]
@@ -1054,15 +1054,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission2": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission2",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission2",
+          "SSNMobileApp-HttpApiLambdaPermission2": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission2",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission2",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1071,7 +1071,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/itemsbytype/{id}"
                     ]
@@ -1084,15 +1084,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission3": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission3",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission3",
+          "SSNMobileApp-HttpApiLambdaPermission3": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission3",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission3",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1101,7 +1101,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/itemupdate"
                     ]
@@ -1114,15 +1114,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission4": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission4",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission4",
+          "SSNMobileApp-HttpApiLambdaPermission4": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission4",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission4",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1131,7 +1131,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/getsecrets"
                     ]
@@ -1144,15 +1144,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission5": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission5",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission5",
+          "SSNMobileApp-HttpApiLambdaPermission5": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission5",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission5",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1161,7 +1161,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/userid/{id}"
                     ]
@@ -1174,15 +1174,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission6": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission6",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission6",
+          "SSNMobileApp-HttpApiLambdaPermission6": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission6",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission6",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1191,7 +1191,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/items/{column}/{value}"
                     ]
@@ -1204,15 +1204,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission7": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission7",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission7",
+          "SSNMobileApp-HttpApiLambdaPermission7": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission7",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission7",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1221,7 +1221,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/removeitem/{id}"
                     ]
@@ -1234,15 +1234,15 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiLambdaPermission8": {
-            "id": "TalesOfSuba-HttpApiLambdaPermission8",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission8",
+          "SSNMobileApp-HttpApiLambdaPermission8": {
+            "id": "SSNMobileApp-HttpApiLambdaPermission8",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission8",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "TalesOfSubaapigatewayhandler01D9B7D6"
+                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1251,7 +1251,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "TalesOfSubaHttpToSqsAPI"
+                        "Ref": "SSNMobileAppHttpToSqsAPI"
                       },
                       "/*/*/items/filter2column"
                     ]
@@ -1264,9 +1264,9 @@
               "version": "2.118.0"
             }
           },
-          "TalesOfSuba-HttpApiEndpoint": {
-            "id": "TalesOfSuba-HttpApiEndpoint",
-            "path": "TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiEndpoint",
+          "SSNMobileApp-HttpApiEndpoint": {
+            "id": "SSNMobileApp-HttpApiEndpoint",
+            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiEndpoint",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.118.0"
@@ -1274,11 +1274,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "TalesofsubaInfraCdkStack/CDKMetadata",
+            "path": "SSNMobileAppInfraCdkStack/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "TalesofsubaInfraCdkStack/CDKMetadata/Default",
+                "path": "SSNMobileAppInfraCdkStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.118.0"
@@ -1292,7 +1292,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "TalesofsubaInfraCdkStack/BootstrapVersion",
+            "path": "SSNMobileAppInfraCdkStack/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.118.0"
@@ -1300,7 +1300,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "TalesofsubaInfraCdkStack/CheckBootstrapVersion",
+            "path": "SSNMobileAppInfraCdkStack/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.118.0"

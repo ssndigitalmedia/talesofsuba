@@ -9,11 +9,11 @@ import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as eventsources from "aws-cdk-lib/aws-lambda-event-sources";
 import * as cdk from "aws-cdk-lib/core";
 
-export class TalesofsubaInfraCdkStack extends Stack {
+export class SSNMobileAppInfraCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
-
-    var project = "TalesOfSuba-";
+    var project = "SSNMobileApp-";
+    // var project = "TalesOfSuba-";
     // var project = "KnowUrCircle-";
     // var project = "SSNDigitalMedia-";
 
@@ -25,9 +25,7 @@ export class TalesofsubaInfraCdkStack extends Stack {
     } else {
       return;
     }
-
     ////..................SQS QUEUES................./////////
-
     // SQS DLQ
     const queueDlq = new sqs.Queue(this, `${project}DLQ`, {
       visibilityTimeout: Duration.seconds(300),

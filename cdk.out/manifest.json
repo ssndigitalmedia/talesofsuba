@@ -1,28 +1,28 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "TalesofsubaInfraCdkStack.assets": {
+    "SSNMobileAppInfraCdkStack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "TalesofsubaInfraCdkStack.assets.json",
+        "file": "SSNMobileAppInfraCdkStack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "TalesofsubaInfraCdkStack": {
+    "SSNMobileAppInfraCdkStack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://949365052778/us-east-1",
       "properties": {
-        "templateFile": "TalesofsubaInfraCdkStack.template.json",
+        "templateFile": "SSNMobileAppInfraCdkStack.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-deploy-role-949365052778-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-cfn-exec-role-949365052778-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-us-east-1/20bf592310888272368540995bdb8369507d0321ac260f7665daf702fd8879c6.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-us-east-1/a964c30cb58ca36b22fe6d4806e0b73b0284b36eaa262b39a58b31636b6cd86e.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "TalesofsubaInfraCdkStack.assets"
+          "SSNMobileAppInfraCdkStack.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-lookup-role-949365052778-us-east-1",
@@ -31,259 +31,259 @@
         }
       },
       "dependencies": [
-        "TalesofsubaInfraCdkStack.assets"
+        "SSNMobileAppInfraCdkStack.assets"
       ],
       "metadata": {
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-DLQ/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-DLQ/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaDLQ73095311"
+            "data": "SSNMobileAppDLQ89985073"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-bufferingQueue/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-bufferingQueue/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubabufferingQueue32E7095F"
+            "data": "SSNMobileAppbufferingQueueFAB12287"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-Loggroup/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-Loggroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaLoggroupBFE819EB"
+            "data": "SSNMobileAppLoggroup56441AF8"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-event-table": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-event-table": [
           {
             "type": "aws:cdk:hasPhysicalName",
             "data": {
-              "Ref": "TalesOfSubaeventtable3AFF9B6D"
+              "Ref": "SSNMobileAppeventtableF4774717"
             }
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-event-table/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-event-table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaeventtable3AFF9B6D"
+            "data": "SSNMobileAppeventtableF4774717"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaAPIGatewayHandlerLambdaExecutionRole6EA0DBF8"
+            "data": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyBFE8EF8A"
+            "data": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy5B13261F"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-APIGatewayHandlerInlinePolicy/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaAPIGatewayHandlerInlinePolicy34E1C15B"
+            "data": "SSNMobileAppAPIGatewayHandlerInlinePolicyFAE1AEAD"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwV2ToSqsRole/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaApiGwV2ToSqsRoleA3921543"
+            "data": "SSNMobileAppApiGwV2ToSqsRole9550C7E1"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwV2ToSqsInlinePolicy/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaApiGwV2ToSqsInlinePolicy1688FD0B"
+            "data": "SSNMobileAppApiGwV2ToSqsInlinePolicy14F49604"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaapigatewayhandler01D9B7D6"
+            "data": "SSNMobileAppapigatewayhandlerCAA264B7"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-apigatewayhandler/SqsEventSource:TalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaapigatewayhandlerSqsEventSourceTalesofsubaInfraCdkStackTalesOfSubabufferingQueueD068B1DF16A517C3"
+            "data": "SSNMobileAppapigatewayhandlerSqsEventSourceSSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D306B89B9"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaRole/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaApiGwToLambdaRoleAE994376"
+            "data": "SSNMobileAppApiGwToLambdaRoleC5C16745"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-ApiGwToLambdaInlinePolicy/Resource": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaApiGwToLambdaInlinePolicyD7BAF05E"
+            "data": "SSNMobileAppApiGwToLambdaInlinePolicy6E266B84"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpToSqs-API": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqs-API": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpToSqsAPI"
+            "data": "SSNMobileAppHttpToSqsAPI"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpToSqsStage": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqsStage": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpToSqsStage"
+            "data": "SSNMobileAppHttpToSqsStage"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-httpApiIntegSqsSendMessage": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegSqsSendMessage": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubahttpApiIntegSqsSendMessage"
+            "data": "SSNMobileApphttpApiIntegSqsSendMessage"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-httpApiIntegInvokeLambda": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegInvokeLambda": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubahttpApiIntegInvokeLambda"
+            "data": "SSNMobileApphttpApiIntegInvokeLambda"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg2": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg2"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg2"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg4": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg4": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg4"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg4"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg5": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg5": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg5"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg5"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg6": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg6": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg6"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg6"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg3": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg3": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg3"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg3"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg1": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg1"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg1"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRoute7": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute7": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRoute7"
+            "data": "SSNMobileAppHttpApiRoute7"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg8": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg8": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg8"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg8"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRouteSqsSendMsg9": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg9": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRouteSqsSendMsg9"
+            "data": "SSNMobileAppHttpApiRouteSqsSendMsg9"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiRoute10": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute10": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiRoute10"
+            "data": "SSNMobileAppHttpApiRoute10"
           }
         ],
-        "/TalesofsubaInfraCdkStack/MyLambdaLogGroup/Resource": [
+        "/SSNMobileAppInfraCdkStack/MyLambdaLogGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MyLambdaLogGroupA24CCB16"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission1": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission1"
+            "data": "SSNMobileAppHttpApiLambdaPermission1"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission2": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission2"
+            "data": "SSNMobileAppHttpApiLambdaPermission2"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission3": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission3": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission3"
+            "data": "SSNMobileAppHttpApiLambdaPermission3"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission4": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission4": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission4"
+            "data": "SSNMobileAppHttpApiLambdaPermission4"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission5": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission5": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission5"
+            "data": "SSNMobileAppHttpApiLambdaPermission5"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission6": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission6": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission6"
+            "data": "SSNMobileAppHttpApiLambdaPermission6"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission7": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission7": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission7"
+            "data": "SSNMobileAppHttpApiLambdaPermission7"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiLambdaPermission8": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission8": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiLambdaPermission8"
+            "data": "SSNMobileAppHttpApiLambdaPermission8"
           }
         ],
-        "/TalesofsubaInfraCdkStack/TalesOfSuba-HttpApiEndpoint": [
+        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiEndpoint": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "TalesOfSubaHttpApiEndpoint"
+            "data": "SSNMobileAppHttpApiEndpoint"
           }
         ],
-        "/TalesofsubaInfraCdkStack/CDKMetadata/Default": [
+        "/SSNMobileAppInfraCdkStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/TalesofsubaInfraCdkStack/BootstrapVersion": [
+        "/SSNMobileAppInfraCdkStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/TalesofsubaInfraCdkStack/CheckBootstrapVersion": [
+        "/SSNMobileAppInfraCdkStack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "TalesofsubaInfraCdkStack"
+      "displayName": "SSNMobileAppInfraCdkStack"
     },
     "Tree": {
       "type": "cdk:tree",
