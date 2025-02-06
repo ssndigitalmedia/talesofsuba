@@ -9,10 +9,11 @@ import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as eventsources from "aws-cdk-lib/aws-lambda-event-sources";
 import * as cdk from "aws-cdk-lib/core";
 
-export class SSNMobileAppInfraCdkStack extends Stack {
+export class FaceCheckInAppInfraCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
-    var project = "SSNMobileApp-";
+    var project = "FaceCheckInApp-";
+    //var project = "RecipeAIApp-";
     // var project = "TalesOfSuba-";
     // var project = "KnowUrCircle-";
     // var project = "SSNDigitalMedia-";

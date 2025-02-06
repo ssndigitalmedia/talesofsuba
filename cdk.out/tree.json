@@ -4,21 +4,21 @@
     "id": "App",
     "path": "",
     "children": {
-      "SSNMobileAppInfraCdkStack": {
-        "id": "SSNMobileAppInfraCdkStack",
-        "path": "SSNMobileAppInfraCdkStack",
+      "FaceCheckInAppInfraCdkStack": {
+        "id": "FaceCheckInAppInfraCdkStack",
+        "path": "FaceCheckInAppInfraCdkStack",
         "children": {
-          "SSNMobileApp-DLQ": {
-            "id": "SSNMobileApp-DLQ",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-DLQ",
+          "FaceCheckInApp-DLQ": {
+            "id": "FaceCheckInApp-DLQ",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-DLQ",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-DLQ/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-DLQ/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
                   "aws:cdk:cloudformation:props": {
-                    "queueName": "SSNMobileApp-DLQ",
+                    "queueName": "FaceCheckInApp-DLQ",
                     "visibilityTimeout": 300
                   }
                 },
@@ -33,21 +33,21 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-bufferingQueue": {
-            "id": "SSNMobileApp-bufferingQueue",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-bufferingQueue",
+          "FaceCheckInApp-bufferingQueue": {
+            "id": "FaceCheckInApp-bufferingQueue",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-bufferingQueue",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-bufferingQueue/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-bufferingQueue/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
                   "aws:cdk:cloudformation:props": {
-                    "queueName": "SSNMobileApp-bufferingQueue",
+                    "queueName": "FaceCheckInApp-bufferingQueue",
                     "redrivePolicy": {
                       "deadLetterTargetArn": {
                         "Fn::GetAtt": [
-                          "SSNMobileAppDLQ89985073",
+                          "FaceCheckInAppDLQ7615442A",
                           "Arn"
                         ]
                       },
@@ -67,13 +67,13 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-Loggroup": {
-            "id": "SSNMobileApp-Loggroup",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-Loggroup",
+          "FaceCheckInApp-Loggroup": {
+            "id": "FaceCheckInApp-Loggroup",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-Loggroup",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-Loggroup/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-Loggroup/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                   "aws:cdk:cloudformation:props": {
@@ -91,13 +91,13 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-event-table": {
-            "id": "SSNMobileApp-event-table",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-event-table",
+          "FaceCheckInApp-event-table": {
+            "id": "FaceCheckInApp-event-table",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-event-table",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-event-table/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-event-table/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
                   "aws:cdk:cloudformation:props": {
@@ -114,7 +114,7 @@
                         "keyType": "HASH"
                       }
                     ],
-                    "tableName": "SSNMobileApp-EventTable"
+                    "tableName": "FaceCheckInApp-EventTable"
                   }
                 },
                 "constructInfo": {
@@ -124,7 +124,7 @@
               },
               "ScalingRole": {
                 "id": "ScalingRole",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-event-table/ScalingRole",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-event-table/ScalingRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -136,13 +136,13 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-APIGatewayHandlerLambdaExecutionRole": {
-            "id": "SSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
+          "FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole": {
+            "id": "FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole",
             "children": {
-              "ImportSSNMobileApp-APIGatewayHandlerLambdaExecutionRole": {
-                "id": "ImportSSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/ImportSSNMobileApp-APIGatewayHandlerLambdaExecutionRole",
+              "ImportFaceCheckInApp-APIGatewayHandlerLambdaExecutionRole": {
+                "id": "ImportFaceCheckInApp-APIGatewayHandlerLambdaExecutionRole",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole/ImportFaceCheckInApp-APIGatewayHandlerLambdaExecutionRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -150,7 +150,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -166,7 +166,7 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "roleName": "SSNMobileApp-APIGatewayHandlerLambdaExecutionRole"
+                    "roleName": "FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole"
                   }
                 },
                 "constructInfo": {
@@ -176,11 +176,11 @@
               },
               "DefaultPolicy": {
                 "id": "DefaultPolicy",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource",
+                    "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                       "aws:cdk:cloudformation:props": {
@@ -197,7 +197,7 @@
                               "Effect": "Allow",
                               "Resource": {
                                 "Fn::GetAtt": [
-                                  "SSNMobileAppbufferingQueueFAB12287",
+                                  "FaceCheckInAppbufferingQueue267EE4A1",
                                   "Arn"
                                 ]
                               }
@@ -205,10 +205,10 @@
                           ],
                           "Version": "2012-10-17"
                         },
-                        "policyName": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy5B13261F",
+                        "policyName": "FaceCheckInAppAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyC783FB3D",
                         "roles": [
                           {
-                            "Ref": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E"
+                            "Ref": "FaceCheckInAppAPIGatewayHandlerLambdaExecutionRole076664E2"
                           }
                         ]
                       }
@@ -230,13 +230,13 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-APIGatewayHandlerInlinePolicy": {
-            "id": "SSNMobileApp-APIGatewayHandlerInlinePolicy",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerInlinePolicy",
+          "FaceCheckInApp-APIGatewayHandlerInlinePolicy": {
+            "id": "FaceCheckInApp-APIGatewayHandlerInlinePolicy",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerInlinePolicy",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerInlinePolicy/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerInlinePolicy/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                   "aws:cdk:cloudformation:props": {
@@ -257,7 +257,7 @@
                           "Effect": "Allow",
                           "Resource": {
                             "Fn::GetAtt": [
-                              "SSNMobileAppeventtableF4774717",
+                              "FaceCheckInAppeventtableE8A3EB8E",
                               "Arn"
                             ]
                           }
@@ -275,10 +275,10 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "policyName": "SSNMobileAppAPIGatewayHandlerInlinePolicyFAE1AEAD",
+                    "policyName": "FaceCheckInAppAPIGatewayHandlerInlinePolicy306ABB73",
                     "roles": [
                       {
-                        "Ref": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E"
+                        "Ref": "FaceCheckInAppAPIGatewayHandlerLambdaExecutionRole076664E2"
                       }
                     ]
                   }
@@ -294,13 +294,13 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-ApiGwV2ToSqsRole": {
-            "id": "SSNMobileApp-ApiGwV2ToSqsRole",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole",
+          "FaceCheckInApp-ApiGwV2ToSqsRole": {
+            "id": "FaceCheckInApp-ApiGwV2ToSqsRole",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwV2ToSqsRole",
             "children": {
-              "ImportSSNMobileApp-ApiGwV2ToSqsRole": {
-                "id": "ImportSSNMobileApp-ApiGwV2ToSqsRole",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole/ImportSSNMobileApp-ApiGwV2ToSqsRole",
+              "ImportFaceCheckInApp-ApiGwV2ToSqsRole": {
+                "id": "ImportFaceCheckInApp-ApiGwV2ToSqsRole",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwV2ToSqsRole/ImportFaceCheckInApp-ApiGwV2ToSqsRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -308,7 +308,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwV2ToSqsRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -327,7 +327,7 @@
                     "managedPolicyArns": [
                       "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
                     ],
-                    "roleName": "SSNMobileApp-ApiGwV2ToSqsRole"
+                    "roleName": "FaceCheckInApp-ApiGwV2ToSqsRole"
                   }
                 },
                 "constructInfo": {
@@ -343,19 +343,19 @@
           },
           "ApiGwPushCwPolicy": {
             "id": "ApiGwPushCwPolicy",
-            "path": "SSNMobileAppInfraCdkStack/ApiGwPushCwPolicy",
+            "path": "FaceCheckInAppInfraCdkStack/ApiGwPushCwPolicy",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-ApiGwV2ToSqsInlinePolicy": {
-            "id": "SSNMobileApp-ApiGwV2ToSqsInlinePolicy",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsInlinePolicy",
+          "FaceCheckInApp-ApiGwV2ToSqsInlinePolicy": {
+            "id": "FaceCheckInApp-ApiGwV2ToSqsInlinePolicy",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwV2ToSqsInlinePolicy",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsInlinePolicy/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwV2ToSqsInlinePolicy/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                   "aws:cdk:cloudformation:props": {
@@ -371,7 +371,7 @@
                           "Effect": "Allow",
                           "Resource": {
                             "Fn::GetAtt": [
-                              "SSNMobileAppbufferingQueueFAB12287",
+                              "FaceCheckInAppbufferingQueue267EE4A1",
                               "Arn"
                             ]
                           }
@@ -379,10 +379,10 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "policyName": "SSNMobileAppApiGwV2ToSqsInlinePolicy14F49604",
+                    "policyName": "FaceCheckInAppApiGwV2ToSqsInlinePolicy7DEB6249",
                     "roles": [
                       {
-                        "Ref": "SSNMobileAppApiGwV2ToSqsRole9550C7E1"
+                        "Ref": "FaceCheckInAppApiGwV2ToSqsRoleEB44322A"
                       }
                     ]
                   }
@@ -398,17 +398,17 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-apigatewayhandler": {
-            "id": "SSNMobileApp-apigatewayhandler",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler",
+          "FaceCheckInApp-apigatewayhandler": {
+            "id": "FaceCheckInApp-apigatewayhandler",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler",
             "children": {
               "Code": {
                 "id": "Code",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Code",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Code/Stage",
+                    "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.118.0"
@@ -416,7 +416,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Code/AssetBucket",
+                    "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.118.0"
@@ -430,7 +430,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -441,15 +441,15 @@
                     "environment": {
                       "variables": {
                         "table": {
-                          "Ref": "SSNMobileAppeventtableF4774717"
+                          "Ref": "FaceCheckInAppeventtableE8A3EB8E"
                         }
                       }
                     },
-                    "functionName": "SSNMobileApp-apigatewayhandler",
+                    "functionName": "FaceCheckInApp-apigatewayhandler",
                     "handler": "apigatewayhandler.handler",
                     "role": {
                       "Fn::GetAtt": [
-                        "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E",
+                        "FaceCheckInAppAPIGatewayHandlerLambdaExecutionRole076664E2",
                         "Arn"
                       ]
                     },
@@ -461,24 +461,24 @@
                   "version": "2.118.0"
                 }
               },
-              "SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D": {
-                "id": "SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D",
+              "SqsEventSource:FaceCheckInAppInfraCdkStackFaceCheckInAppbufferingQueue2285B30E": {
+                "id": "SqsEventSource:FaceCheckInAppInfraCdkStackFaceCheckInAppbufferingQueue2285B30E",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/SqsEventSource:FaceCheckInAppInfraCdkStackFaceCheckInAppbufferingQueue2285B30E",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D/Resource",
+                    "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/SqsEventSource:FaceCheckInAppInfraCdkStackFaceCheckInAppbufferingQueue2285B30E/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::Lambda::EventSourceMapping",
                       "aws:cdk:cloudformation:props": {
                         "eventSourceArn": {
                           "Fn::GetAtt": [
-                            "SSNMobileAppbufferingQueueFAB12287",
+                            "FaceCheckInAppbufferingQueue267EE4A1",
                             "Arn"
                           ]
                         },
                         "functionName": {
-                          "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                          "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                         }
                       }
                     },
@@ -499,13 +499,13 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-ApiGwToLambdaRole": {
-            "id": "SSNMobileApp-ApiGwToLambdaRole",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole",
+          "FaceCheckInApp-ApiGwToLambdaRole": {
+            "id": "FaceCheckInApp-ApiGwToLambdaRole",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwToLambdaRole",
             "children": {
-              "ImportSSNMobileApp-ApiGwToLambdaRole": {
-                "id": "ImportSSNMobileApp-ApiGwToLambdaRole",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole/ImportSSNMobileApp-ApiGwToLambdaRole",
+              "ImportFaceCheckInApp-ApiGwToLambdaRole": {
+                "id": "ImportFaceCheckInApp-ApiGwToLambdaRole",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwToLambdaRole/ImportFaceCheckInApp-ApiGwToLambdaRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.118.0"
@@ -513,7 +513,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwToLambdaRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -529,7 +529,7 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "roleName": "SSNMobileApp-ApiGwToLambdaRole"
+                    "roleName": "FaceCheckInApp-ApiGwToLambdaRole"
                   }
                 },
                 "constructInfo": {
@@ -543,13 +543,13 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-ApiGwToLambdaInlinePolicy": {
-            "id": "SSNMobileApp-ApiGwToLambdaInlinePolicy",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaInlinePolicy",
+          "FaceCheckInApp-ApiGwToLambdaInlinePolicy": {
+            "id": "FaceCheckInApp-ApiGwToLambdaInlinePolicy",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwToLambdaInlinePolicy",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaInlinePolicy/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwToLambdaInlinePolicy/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                   "aws:cdk:cloudformation:props": {
@@ -563,7 +563,7 @@
                           "Effect": "Allow",
                           "Resource": {
                             "Fn::GetAtt": [
-                              "SSNMobileAppapigatewayhandlerCAA264B7",
+                              "FaceCheckInAppapigatewayhandlerC2EBFE91",
                               "Arn"
                             ]
                           }
@@ -571,10 +571,10 @@
                       ],
                       "Version": "2012-10-17"
                     },
-                    "policyName": "SSNMobileAppApiGwToLambdaInlinePolicy6E266B84",
+                    "policyName": "FaceCheckInAppApiGwToLambdaInlinePolicy85C4DE88",
                     "roles": [
                       {
-                        "Ref": "SSNMobileAppApiGwToLambdaRoleC5C16745"
+                        "Ref": "FaceCheckInAppApiGwToLambdaRoleBE123C0D"
                       }
                     ]
                   }
@@ -590,9 +590,9 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpToSqs-API": {
-            "id": "SSNMobileApp-HttpToSqs-API",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqs-API",
+          "FaceCheckInApp-HttpToSqs-API": {
+            "id": "FaceCheckInApp-HttpToSqs-API",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpToSqs-API",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Api",
               "aws:cdk:cloudformation:props": {
@@ -612,7 +612,7 @@
                   ],
                   "maxAge": 43200
                 },
-                "name": "SSNMobileApp-function",
+                "name": "FaceCheckInApp-function",
                 "protocolType": "HTTP"
               }
             },
@@ -621,23 +621,23 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpToSqsStage": {
-            "id": "SSNMobileApp-HttpToSqsStage",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqsStage",
+          "FaceCheckInApp-HttpToSqsStage": {
+            "id": "FaceCheckInApp-HttpToSqsStage",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpToSqsStage",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Stage",
               "aws:cdk:cloudformation:props": {
                 "accessLogSettings": {
                   "destinationArn": {
                     "Fn::GetAtt": [
-                      "SSNMobileAppLoggroup56441AF8",
+                      "FaceCheckInAppLoggroupBEC4A399",
                       "Arn"
                     ]
                   },
                   "format": "{ \"requestId\":\"$context.requestId\", \"ip\": \"$context.identity.sourceIp\", \"requestTime\":\"$context.requestTime\", \"httpMethod\":\"$context.httpMethod\",\"routeKey\":\"$context.routeKey\", \"status\":\"$context.status\",\"protocol\":\"$context.protocol\", \"responseLength\":\"$context.responseLength\" }"
                 },
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "autoDeploy": true,
                 "stageName": "$default"
@@ -648,18 +648,18 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-httpApiIntegSqsSendMessage": {
-            "id": "SSNMobileApp-httpApiIntegSqsSendMessage",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegSqsSendMessage",
+          "FaceCheckInApp-httpApiIntegSqsSendMessage": {
+            "id": "FaceCheckInApp-httpApiIntegSqsSendMessage",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-httpApiIntegSqsSendMessage",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Integration",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "credentialsArn": {
                   "Fn::GetAtt": [
-                    "SSNMobileAppApiGwV2ToSqsRole9550C7E1",
+                    "FaceCheckInAppApiGwV2ToSqsRoleEB44322A",
                     "Arn"
                   ]
                 },
@@ -668,7 +668,7 @@
                 "payloadFormatVersion": "1.0",
                 "requestParameters": {
                   "QueueUrl": {
-                    "Ref": "SSNMobileAppbufferingQueueFAB12287"
+                    "Ref": "FaceCheckInAppbufferingQueue267EE4A1"
                   },
                   "MessageBody": "$request.body"
                 }
@@ -679,25 +679,25 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-httpApiIntegInvokeLambda": {
-            "id": "SSNMobileApp-httpApiIntegInvokeLambda",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegInvokeLambda",
+          "FaceCheckInApp-httpApiIntegInvokeLambda": {
+            "id": "FaceCheckInApp-httpApiIntegInvokeLambda",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-httpApiIntegInvokeLambda",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Integration",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "credentialsArn": {
                   "Fn::GetAtt": [
-                    "SSNMobileAppApiGwToLambdaRoleC5C16745",
+                    "FaceCheckInAppApiGwToLambdaRoleBE123C0D",
                     "Arn"
                   ]
                 },
                 "integrationType": "AWS_PROXY",
                 "integrationUri": {
                   "Fn::GetAtt": [
-                    "SSNMobileAppapigatewayhandlerCAA264B7",
+                    "FaceCheckInAppapigatewayhandlerC2EBFE91",
                     "Arn"
                   ]
                 },
@@ -709,14 +709,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg2": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg2",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg2",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg2": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg2",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg2",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /itemsbytype/{id}",
                 "target": {
@@ -725,7 +725,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -737,14 +737,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg4": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg4",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg4",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg4": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg4",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg4",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /items/{id}",
                 "target": {
@@ -753,7 +753,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -765,14 +765,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg5": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg5",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg5",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg5": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg5",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg5",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "PUT /items",
                 "target": {
@@ -781,7 +781,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegSqsSendMessage"
+                        "Ref": "FaceCheckInApphttpApiIntegSqsSendMessage"
                       }
                     ]
                   ]
@@ -793,14 +793,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg6": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg6",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg6",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg6": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg6",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg6",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /items",
                 "target": {
@@ -809,7 +809,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegSqsSendMessage"
+                        "Ref": "FaceCheckInApphttpApiIntegSqsSendMessage"
                       }
                     ]
                   ]
@@ -821,14 +821,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg3": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg3",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg3",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg3": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg3",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg3",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "DELETE /removeitem/{id}",
                 "target": {
@@ -837,7 +837,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -849,14 +849,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg1": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg1",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg1",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg1": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg1",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg1",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /itemupdate",
                 "target": {
@@ -865,7 +865,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -877,14 +877,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRoute7": {
-            "id": "SSNMobileApp-HttpApiRoute7",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute7",
+          "FaceCheckInApp-HttpApiRoute7": {
+            "id": "FaceCheckInApp-HttpApiRoute7",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRoute7",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /getsecrets",
                 "target": {
@@ -893,7 +893,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -905,14 +905,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg8": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg8",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg8",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg8": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg8",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg8",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /userid/{id}",
                 "target": {
@@ -921,7 +921,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -933,14 +933,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRouteSqsSendMsg9": {
-            "id": "SSNMobileApp-HttpApiRouteSqsSendMsg9",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg9",
+          "FaceCheckInApp-HttpApiRouteSqsSendMsg9": {
+            "id": "FaceCheckInApp-HttpApiRouteSqsSendMsg9",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg9",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "GET /items/{column}/{value}",
                 "target": {
@@ -949,7 +949,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -961,14 +961,14 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiRoute10": {
-            "id": "SSNMobileApp-HttpApiRoute10",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute10",
+          "FaceCheckInApp-HttpApiRoute10": {
+            "id": "FaceCheckInApp-HttpApiRoute10",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRoute10",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
               "aws:cdk:cloudformation:props": {
                 "apiId": {
-                  "Ref": "SSNMobileAppHttpToSqsAPI"
+                  "Ref": "FaceCheckInAppHttpToSqsAPI"
                 },
                 "routeKey": "POST /items/filter2column",
                 "target": {
@@ -977,7 +977,7 @@
                     [
                       "integrations/",
                       {
-                        "Ref": "SSNMobileApphttpApiIntegInvokeLambda"
+                        "Ref": "FaceCheckInApphttpApiIntegInvokeLambda"
                       }
                     ]
                   ]
@@ -991,11 +991,11 @@
           },
           "MyLambdaLogGroup": {
             "id": "MyLambdaLogGroup",
-            "path": "SSNMobileAppInfraCdkStack/MyLambdaLogGroup",
+            "path": "FaceCheckInAppInfraCdkStack/MyLambdaLogGroup",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SSNMobileAppInfraCdkStack/MyLambdaLogGroup/Resource",
+                "path": "FaceCheckInAppInfraCdkStack/MyLambdaLogGroup/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                   "aws:cdk:cloudformation:props": {
@@ -1005,7 +1005,7 @@
                         [
                           "/aws/lambda/",
                           {
-                            "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                            "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                           }
                         ]
                       ]
@@ -1024,15 +1024,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission1": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission1",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission1",
+          "FaceCheckInApp-HttpApiLambdaPermission1": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission1",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission1",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1041,7 +1041,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/items/{id}"
                     ]
@@ -1054,15 +1054,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission2": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission2",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission2",
+          "FaceCheckInApp-HttpApiLambdaPermission2": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission2",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission2",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1071,7 +1071,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/itemsbytype/{id}"
                     ]
@@ -1084,15 +1084,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission3": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission3",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission3",
+          "FaceCheckInApp-HttpApiLambdaPermission3": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission3",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission3",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1101,7 +1101,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/itemupdate"
                     ]
@@ -1114,15 +1114,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission4": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission4",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission4",
+          "FaceCheckInApp-HttpApiLambdaPermission4": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission4",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission4",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1131,7 +1131,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/getsecrets"
                     ]
@@ -1144,15 +1144,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission5": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission5",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission5",
+          "FaceCheckInApp-HttpApiLambdaPermission5": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission5",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission5",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1161,7 +1161,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/userid/{id}"
                     ]
@@ -1174,15 +1174,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission6": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission6",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission6",
+          "FaceCheckInApp-HttpApiLambdaPermission6": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission6",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission6",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1191,7 +1191,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/items/{column}/{value}"
                     ]
@@ -1204,15 +1204,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission7": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission7",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission7",
+          "FaceCheckInApp-HttpApiLambdaPermission7": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission7",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission7",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1221,7 +1221,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/removeitem/{id}"
                     ]
@@ -1234,15 +1234,15 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiLambdaPermission8": {
-            "id": "SSNMobileApp-HttpApiLambdaPermission8",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission8",
+          "FaceCheckInApp-HttpApiLambdaPermission8": {
+            "id": "FaceCheckInApp-HttpApiLambdaPermission8",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission8",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
               "aws:cdk:cloudformation:props": {
                 "action": "lambda:InvokeFunction",
                 "functionName": {
-                  "Ref": "SSNMobileAppapigatewayhandlerCAA264B7"
+                  "Ref": "FaceCheckInAppapigatewayhandlerC2EBFE91"
                 },
                 "principal": "apigateway.amazonaws.com",
                 "sourceArn": {
@@ -1251,7 +1251,7 @@
                     [
                       "arn:aws:execute-api:us-east-1:949365052778:",
                       {
-                        "Ref": "SSNMobileAppHttpToSqsAPI"
+                        "Ref": "FaceCheckInAppHttpToSqsAPI"
                       },
                       "/*/*/items/filter2column"
                     ]
@@ -1264,9 +1264,9 @@
               "version": "2.118.0"
             }
           },
-          "SSNMobileApp-HttpApiEndpoint": {
-            "id": "SSNMobileApp-HttpApiEndpoint",
-            "path": "SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiEndpoint",
+          "FaceCheckInApp-HttpApiEndpoint": {
+            "id": "FaceCheckInApp-HttpApiEndpoint",
+            "path": "FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiEndpoint",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.118.0"
@@ -1274,11 +1274,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "SSNMobileAppInfraCdkStack/CDKMetadata",
+            "path": "FaceCheckInAppInfraCdkStack/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "SSNMobileAppInfraCdkStack/CDKMetadata/Default",
+                "path": "FaceCheckInAppInfraCdkStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.118.0"
@@ -1292,7 +1292,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "SSNMobileAppInfraCdkStack/BootstrapVersion",
+            "path": "FaceCheckInAppInfraCdkStack/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.118.0"
@@ -1300,7 +1300,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "SSNMobileAppInfraCdkStack/CheckBootstrapVersion",
+            "path": "FaceCheckInAppInfraCdkStack/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.118.0"

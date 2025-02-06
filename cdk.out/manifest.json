@@ -1,28 +1,28 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "SSNMobileAppInfraCdkStack.assets": {
+    "FaceCheckInAppInfraCdkStack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "SSNMobileAppInfraCdkStack.assets.json",
+        "file": "FaceCheckInAppInfraCdkStack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "SSNMobileAppInfraCdkStack": {
+    "FaceCheckInAppInfraCdkStack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://949365052778/us-east-1",
       "properties": {
-        "templateFile": "SSNMobileAppInfraCdkStack.template.json",
+        "templateFile": "FaceCheckInAppInfraCdkStack.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-deploy-role-949365052778-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-cfn-exec-role-949365052778-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-us-east-1/a964c30cb58ca36b22fe6d4806e0b73b0284b36eaa262b39a58b31636b6cd86e.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-949365052778-us-east-1/954a89e6c1e8a501b4bc0017a7c8c2528903585c8b98f29006666fef87a73507.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "SSNMobileAppInfraCdkStack.assets"
+          "FaceCheckInAppInfraCdkStack.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::949365052778:role/cdk-hnb659fds-lookup-role-949365052778-us-east-1",
@@ -31,259 +31,259 @@
         }
       },
       "dependencies": [
-        "SSNMobileAppInfraCdkStack.assets"
+        "FaceCheckInAppInfraCdkStack.assets"
       ],
       "metadata": {
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-DLQ/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-DLQ/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppDLQ89985073"
+            "data": "FaceCheckInAppDLQ7615442A"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-bufferingQueue/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-bufferingQueue/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppbufferingQueueFAB12287"
+            "data": "FaceCheckInAppbufferingQueue267EE4A1"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-Loggroup/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-Loggroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppLoggroup56441AF8"
+            "data": "FaceCheckInAppLoggroupBEC4A399"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-event-table": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-event-table": [
           {
             "type": "aws:cdk:hasPhysicalName",
             "data": {
-              "Ref": "SSNMobileAppeventtableF4774717"
+              "Ref": "FaceCheckInAppeventtableE8A3EB8E"
             }
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-event-table/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-event-table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppeventtableF4774717"
+            "data": "FaceCheckInAppeventtableE8A3EB8E"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRole6B8E3A7E"
+            "data": "FaceCheckInAppAPIGatewayHandlerLambdaExecutionRole076664E2"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerLambdaExecutionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppAPIGatewayHandlerLambdaExecutionRoleDefaultPolicy5B13261F"
+            "data": "FaceCheckInAppAPIGatewayHandlerLambdaExecutionRoleDefaultPolicyC783FB3D"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-APIGatewayHandlerInlinePolicy/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-APIGatewayHandlerInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppAPIGatewayHandlerInlinePolicyFAE1AEAD"
+            "data": "FaceCheckInAppAPIGatewayHandlerInlinePolicy306ABB73"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsRole/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwV2ToSqsRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppApiGwV2ToSqsRole9550C7E1"
+            "data": "FaceCheckInAppApiGwV2ToSqsRoleEB44322A"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwV2ToSqsInlinePolicy/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwV2ToSqsInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppApiGwV2ToSqsInlinePolicy14F49604"
+            "data": "FaceCheckInAppApiGwV2ToSqsInlinePolicy7DEB6249"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppapigatewayhandlerCAA264B7"
+            "data": "FaceCheckInAppapigatewayhandlerC2EBFE91"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-apigatewayhandler/SqsEventSource:SSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-apigatewayhandler/SqsEventSource:FaceCheckInAppInfraCdkStackFaceCheckInAppbufferingQueue2285B30E/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppapigatewayhandlerSqsEventSourceSSNMobileAppInfraCdkStackSSNMobileAppbufferingQueue0474E20D306B89B9"
+            "data": "FaceCheckInAppapigatewayhandlerSqsEventSourceFaceCheckInAppInfraCdkStackFaceCheckInAppbufferingQueue2285B30EE280DE94"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaRole/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwToLambdaRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppApiGwToLambdaRoleC5C16745"
+            "data": "FaceCheckInAppApiGwToLambdaRoleBE123C0D"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-ApiGwToLambdaInlinePolicy/Resource": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-ApiGwToLambdaInlinePolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppApiGwToLambdaInlinePolicy6E266B84"
+            "data": "FaceCheckInAppApiGwToLambdaInlinePolicy85C4DE88"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqs-API": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpToSqs-API": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpToSqsAPI"
+            "data": "FaceCheckInAppHttpToSqsAPI"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpToSqsStage": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpToSqsStage": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpToSqsStage"
+            "data": "FaceCheckInAppHttpToSqsStage"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegSqsSendMessage": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-httpApiIntegSqsSendMessage": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileApphttpApiIntegSqsSendMessage"
+            "data": "FaceCheckInApphttpApiIntegSqsSendMessage"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-httpApiIntegInvokeLambda": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-httpApiIntegInvokeLambda": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileApphttpApiIntegInvokeLambda"
+            "data": "FaceCheckInApphttpApiIntegInvokeLambda"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg2": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg2"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg2"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg4": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg4": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg4"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg4"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg5": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg5": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg5"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg5"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg6": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg6": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg6"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg6"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg3": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg3": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg3"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg3"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg1": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg1"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg1"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute7": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRoute7": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRoute7"
+            "data": "FaceCheckInAppHttpApiRoute7"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg8": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg8": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg8"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg8"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRouteSqsSendMsg9": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRouteSqsSendMsg9": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRouteSqsSendMsg9"
+            "data": "FaceCheckInAppHttpApiRouteSqsSendMsg9"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiRoute10": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiRoute10": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiRoute10"
+            "data": "FaceCheckInAppHttpApiRoute10"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/MyLambdaLogGroup/Resource": [
+        "/FaceCheckInAppInfraCdkStack/MyLambdaLogGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MyLambdaLogGroupA24CCB16"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission1": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission1"
+            "data": "FaceCheckInAppHttpApiLambdaPermission1"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission2": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission2"
+            "data": "FaceCheckInAppHttpApiLambdaPermission2"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission3": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission3": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission3"
+            "data": "FaceCheckInAppHttpApiLambdaPermission3"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission4": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission4": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission4"
+            "data": "FaceCheckInAppHttpApiLambdaPermission4"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission5": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission5": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission5"
+            "data": "FaceCheckInAppHttpApiLambdaPermission5"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission6": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission6": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission6"
+            "data": "FaceCheckInAppHttpApiLambdaPermission6"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission7": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission7": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission7"
+            "data": "FaceCheckInAppHttpApiLambdaPermission7"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiLambdaPermission8": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiLambdaPermission8": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiLambdaPermission8"
+            "data": "FaceCheckInAppHttpApiLambdaPermission8"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/SSNMobileApp-HttpApiEndpoint": [
+        "/FaceCheckInAppInfraCdkStack/FaceCheckInApp-HttpApiEndpoint": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSNMobileAppHttpApiEndpoint"
+            "data": "FaceCheckInAppHttpApiEndpoint"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/CDKMetadata/Default": [
+        "/FaceCheckInAppInfraCdkStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/BootstrapVersion": [
+        "/FaceCheckInAppInfraCdkStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/SSNMobileAppInfraCdkStack/CheckBootstrapVersion": [
+        "/FaceCheckInAppInfraCdkStack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "SSNMobileAppInfraCdkStack"
+      "displayName": "FaceCheckInAppInfraCdkStack"
     },
     "Tree": {
       "type": "cdk:tree",
